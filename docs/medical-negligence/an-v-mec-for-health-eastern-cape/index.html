@@ -140,9 +140,72 @@
 
   <h3>Judgment Text</h3>
 
+ <p>
+  <strong>Paragraph 3</strong>
+</p>
+
+<p>
+  <span
+    class="legal-highlight"
+    onclick="showCommentary()"
+  >
+    Wrongfulness involves the breach of a legal duty.
+  </span>
+</p>
+
+<div id="commentary-box" hidden>
+
+  <h3>Interactive Commentary</h3>
+
+  <h4>Principle</h4>
+
   <p>
-    The judgment will be presented here paragraph by paragraph.
+    This passage concerns the concept of wrongfulness
+    and the existence of a legal duty.
   </p>
+
+  <h4>Related Cases</h4>
+
+  <p>
+    Related authorities will be added here.
+  </p>
+
+  <h4>Application</h4>
+
+  <p>
+    The application of the principle to the facts of the
+    case will be developed here.
+  </p>
+
+  <h4>Possible Submission</h4>
+
+  <p>
+    A possible legal submission will be developed here.
+  </p>
+
+  <h4>Opposing Submission</h4>
+
+  <p>
+    The opposing argument will be developed here.
+  </p>
+
+  <h4>Practice This Argument</h4>
+
+  <p>
+    Advocacy practice will be connected here.
+  </p>
+
+</div>
+
+<script>
+
+function showCommentary() {
+
+  document.getElementById("commentary-box").hidden = false;
+
+}
+
+</script>
 
   <p>
     Each paragraph will eventually be capable of being

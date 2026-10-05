@@ -1,1 +1,1430 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+SN obo ON v MEC for Health: Eastern Cape | Fluently Case Analysis
+</title>
+
+<style>
+
+/* ================================
+   FLUENTLY CASE ANALYSIS
+   JUDGMENT READER
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f7;
+  color: #222;
+  line-height: 1.7;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+header {
+  background: #111;
+  color: white;
+  padding: 24px 30px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+header p {
+  margin: 5px 0 0;
+  color: #ccc;
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+
+nav {
+  background: white;
+  border-bottom: 1px solid #ddd;
+  padding: 14px 30px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #7d3c98;
+}
+
+/* ================================
+   MAIN
+================================ */
+
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* ================================
+   CASE OVERVIEW
+================================ */
+
+.case-overview {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+}
+
+.case-overview h2 {
+  margin-top: 0;
+}
+
+.case-details {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 8px 20px;
+}
+
+.case-label {
+  font-weight: bold;
+}
+
+/* ================================
+   JUDGMENT
+================================ */
+
+.judgment-container {
+  background: white;
+  padding: 35px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.judgment-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.judgment-title h2 {
+  margin-bottom: 5px;
+}
+
+.judgment-title p {
+  color: #666;
+}
+
+.judgment-paragraph {
+  position: relative;
+  margin: 0 0 22px 0;
+  padding-left: 48px;
+}
+
+.paragraph-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+  color: #555;
+}
+
+.judgment-heading {
+  font-weight: bold;
+  font-size: 19px;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+/* ================================
+   INTERACTIVE LEGAL PRINCIPLE
+================================ */
+
+.legal-principle {
+  display: inline;
+  background: #eadcff;
+  border-bottom: 2px solid #8e44ad;
+  color: #5b2c6f;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.legal-principle:hover {
+  background: #d9bff0;
+}
+
+/* ================================
+   COMMENTARY POPOVER
+================================ */
+
+#commentary-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 999;
+}
+
+#commentary-popover {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+
+  width: min(650px, calc(100vw - 30px));
+  max-height: 82vh;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: white;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.30);
+
+  border: 1px solid #ddd;
+
+  overflow-y: auto;
+}
+
+.commentary-header {
+  background: #6c3483;
+  color: white;
+  padding: 18px 22px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.commentary-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.close-commentary {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.commentary-body {
+  padding: 25px;
+}
+
+.commentary-section {
+  margin-bottom: 25px;
+}
+
+.commentary-label {
+  color: #6c3483;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 7px;
+}
+
+.commentary-section p {
+  margin-top: 0;
+}
+
+/* ================================
+   SUBMISSION
+================================ */
+
+.submission-box {
+  background: #f7f1fa;
+  border-left: 5px solid #8e44ad;
+  padding: 18px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.submission-text {
+  display: none;
+  margin-top: 15px;
+}
+
+.opposition-box {
+  background: #f8f8f8;
+  border-left: 5px solid #777;
+  padding: 18px;
+  border-radius: 5px;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 4px 4px 4px 0;
+}
+
+.primary-button {
+  background: #6c3483;
+  color: white;
+}
+
+.secondary-button {
+  background: #ddd;
+  color: #222;
+}
+
+.danger-button {
+  background: #922b21;
+  color: white;
+}
+
+button:hover {
+  opacity: .85;
+}
+
+/* ================================
+   RECORDING
+================================ */
+
+.recording-box {
+  background: #f4f4f4;
+  padding: 18px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.recording-status {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ================================
+   SEPARATE JUDGMENT
+================================ */
+
+.separate-judgment {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 2px solid #ddd;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+  margin-top: 50px;
+  padding: 30px;
+  text-align: center;
+  background: #111;
+  color: #aaa;
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+
+  .judgment-container {
+    padding: 20px;
+  }
+
+  .case-details {
+    grid-template-columns: 1fr;
+  }
+
+  .judgment-paragraph {
+    padding-left: 38px;
+  }
+
+  #commentary-popover {
+    max-height: 90vh;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <h1>FLUENTLY</h1>
+
+  <p>CASE ANALYSIS</p>
+
+</header>
+
+
+<nav>
+
+  <a href="../../../index.html">
+    Case Repository
+  </a>
+
+  <a href="../../index.html">
+    Medical Negligence
+  </a>
+
+</nav>
+
+
+<main>
+
+
+<!-- ================================
+     CASE OVERVIEW
+================================ -->
+
+<section class="case-overview">
+  <h2>SN obo ON v MEC for Health: Eastern Cape</h2>
+  <div class="case-details">
+    <div class="case-label">Citation</div>
+    <div>(277/2023) [2025] ZASCA 36</div>
+    <div class="case-label">Court</div>
+    <div>Supreme Court of Appeal</div>
+    <div class="case-label">Date</div>
+    <div>2 April 2025</div>
+    <div class="case-label">Practice Area</div>
+    <div>Medical Negligence</div>
+    <div class="case-label">Legal Areas</div>
+    <div>Medical Negligence · Negligence · Standard of Care · Expert Evidence · Factual Causation · Preventability · Vicarious Liability</div>
+  </div>
+</section>
+
+
+<section id="judgment" class="judgment-container">
+  <h2 class="judgment-title">Judgment</h2>
+  <div class="judgment-majority">
+    <h3 class="judgment-heading">Judgment</h3>
+    <p class="judgment-author">Mokgohloa ADP (Weiner, Kathree-Setiloane and Koen JJA and Molitsoane AJA concurring)</p>
+
+<h4 class="judgment-subheading">Introduction</h4>
+    <p class="judgment-paragraph" id="paragraph-1">
+      <span class="paragraph-number">[1]</span>
+      The appeal concerns a medical negligence claim in terms of which the appellant (SN), acting on behalf of her minor child (ON), claimed damages in the Eastern Cape Division of the High Court, Mthatha (the high court) arising from the brain injury which ON suffered during the birth process at Madzikane KaZulu Memorial Hospital (the hospital) in the Eastern Cape Province. The claim was lodged against the Member of the Executive Council for Health, Eastern Cape Province (the MEC), who would be vicariously liable for damages caused by the <span class="legal-principle" onclick="openCommentary('vicarious')">negligent conduct of the hospital staff</span>.      The facts
+    </p>
+
+<h4 class="judgment-subheading">The facts</h4>
+    <p class="judgment-paragraph" id="paragraph-2">
+      <span class="paragraph-number">[2]</span>
+      During 2013, SN was pregnant with her first child. She was 34 years old. She experienced labour pains in the morning of 14 February 2013 and was taken to the hospital where she was admitted at around 07h30. On examination in the labour ward at 07h30, her pregnancy was estimated at 36 out of 40 weeks and her uterine contractions were normal. There are two phases of labour: the latent phase progressing to the active phase. The active phase in turn has two stages, with the first stage beginning when the cervix of a woman in labour reaches a dilation of 4cm and the second stage starting when the cervical dilation is 10cm. The examination revealed further that SM was in the latent phase of labour. The membrane had not yet ruptured. She had a good temperature and pulse. The foetal heart rate (FHR) was 142 beats per minute (bpm). The foetus was in a cephalic presentation and the cervix was 3cm dilated.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-3">
+      <span class="paragraph-number">[3]</span>
+      The partogram began at 10h00. The examination revealed that labour was progressing well and the maternal condition was good. The FHR was stable at 138 bpm. SN was 4cm dilated and the membrane was intact with no caput nor moulding. A pethidine drug was administered to calm down her labour pains. <span class="legal-principle" onclick="openCommentary('monitoringRecord')">The Maternity Case Record (MCR) did not show any further assessment after 10h00.</span> However, the partogram form showed that SN was again assessed at 12h00, though Sister Bonga, the nurse that attended to SN, stated that it was between 11h30 and 12h00. I will return to this issue later in my judgment. At this stage, the assessment showed the FHR at 136 bpm; that there were no decelerations; the liquor was broken and there was a tinge of meconium although not recorded whether thick or thin; the head of the baby was down completely; 2 caput and no moulding.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-4">
+      <span class="paragraph-number">[4]</span>
+      The summary of labour form in the MCR showed that SN was fully dilated at 11h15 and began bearing down at 11h30. A male child was born at 12h00. As regards complications, the summary of labour form revealed that there was a cord which was wrapped thrice around the baby’s neck. It was not recorded whether the cord was tight or loose. The neonatal detail showed that a male child was born alive. It is further recorded that his 1-minute Apgar score was 7/10.[1] His score for the heart rate was 2, while he scored 1 for respiration, muscle tone and response to stimulation respectively. He scored 2 for colour. A second Apgar assessment was done 5 minutes after ON’s birth; he scored 8/10, again the score for heart rate was 2. There was no improvement on his respiration and muscle tone. His response to stimulation had improved and scored 2. The neonatal assessment described ON as a ‘floppy baby’ with a weak Moro reflex,[2] and an absent ‘cry’. He had to be resuscitated.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-5">
+      <span class="paragraph-number">[5]</span>
+      Later observations noted that ON was resuscitated with an oxygen mask. The first examination on the neonatal page was completed at 12h30. It recorded that ON was lethargic, hypotonic, tachypnoeic with costal recession and his cry was absent. The nursing notes recorded ON as being critically ill, cyanosed and requiring supplementary oxygen, nostalgic feeding and head cooling. ON was diagnosed with a hypoxic-ischaemic encephalopathy (HIE).[3] Ischaemia is defined as a deficiency of blood in a body part due to functional construction or actual obstruction of a blood vessel. Hypoxia results from a sustained reduction in the supply of oxygen to the brain.    In the high court
+    </p>
+
+<h4 class="judgment-subheading">In the high court</h4>
+    <p class="judgment-paragraph" id="paragraph-6">
+      <span class="paragraph-number">[6]</span>
+      It was on that basis that the appellant claimed damages from the MEC. In her particulars of claim, SN asserted, inter alia, that the MEC’s employees, ie hospital staff, had failed to initiate regular blood sugar or blood pressure monitoring of SN after she was admitted at the hospital; failed to take required steps to ensure proper, timeous and professional assessment, monitoring and management of SN, and failed to take steps to prevent the occurrence of complications when this could have been done by exercising reasonable care and diligence. Furthermore, it was averred, inter alia, that the hospital staff had failed to perform accurate and proper monitoring of the foetal heart rate; failed to record an accurate partogram; failed to monitor the FHR with sufficient frequency, and failed to detect that ON was in foetal distress.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-7">
+      <span class="paragraph-number">[7]</span>
+      The MEC’s plea amounted to a bare denial, denying every aspect of negligence which the appellant had alleged in the particulars of claim. She pleaded, in the alternative, that in the event that the court finds that her nursing staff’s monitoring of the labour was substandard, then the baby’s brain damage was not caused by such lack of monitoring, but was the result of an acute profound hypoxic ischemic injury caused by an unknown sentinel event. The pre-trial minutes identified the issues for determination as negligence and causation and indicated that the parties agreed to separate the issues of liability and quantum. The trial commenced on 17 February 2020.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-8">
+      <span class="paragraph-number">[8]</span>
+      At the commencement of the trial, Counsel for the MEC in his opening address referred to the formal admissions that the MEC made in respect of the joint minute of the obstetricians, Dr Ebrahim and Dr Frank dated 29 August 2019. Of relevance at this stage is the admission in paragraphs 6 to 8 of the joint minute which reads:  ‘6. The Department of Health’s guidelines for Maternity care in South Africa (2007) state that the FHR should be checked at half hourly intervals in the first stage of labour, before during and after a contraction. It is also a standard of care to check the FHR after every five minutes or after second push in the second stage of labour.  7. FHR monitoring was sub-standard as it was not checked in accordance with these guidelines.  8. It is therefore unknown whether FHR abnormalities were present or not in the first and second stages of labour.’  <span class="legal-principle" onclick="openCommentary('admission')">In effect, the MEC admitted that the hospital staff were negligent in monitoring SN’s labour progress.</span>
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-9">
+      <span class="paragraph-number">[9]</span>
+      The evidence adduced before the high court was that of the appellant, the nursing sister who attended to her (Sister Bonga) and two experts. Sister Bonga had no recollection of SN’s labour process and the birth of ON. She testified as to what is recorded in the MCR and what her usual practice was in dealing with a patient in labour. The expert witnesses who testified formulated their opinions based on the appellant’s medical records, her antenatal card, the partogram, the neonatal records as well as the MRI scan performed by Dr Twetwa on 22 August 2014. The MRI features were considered by the radiologists as diagnostic of hypoxic ischaemic encephalopathy.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-10">
+      <span class="paragraph-number">[10]</span>
+      The appellant testified and adduced the evidence of two experts, namely Dr Ebrahim, an obstetrician and gynaecologist, and Dr Kara, a paediatrician. The MEC adduced the evidence of Sister Bonga. The MEC’s gynaecologist and obstetrician, Dr Frank, signed a joint minute of experts with Dr Ebrahim, but did not testify during the trial.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-11">
+      <span class="paragraph-number">[11]</span>
+      In its judgment, the high court outlined the issue for determination as follows:  ‘[7] As agreed in the pre-trial minute, and repeated during the trial on 18 February 2020, the following issues were identified by the parties as being critical for the determination of this matter. Those are: (1) whether the acute profound hypoxic ischaemic injury that occurred intrapartum was preventable or foreseeable to the nursing staff of the hospital (the negligence issue); and (2) if so, whether the conduct of the nursing staff was the cause of the cerebral palsy (the causation issue).’
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-12">
+      <span class="paragraph-number">[12]</span>
+      Having analysed the evidence of all the witnesses, the high court found that the monitoring of the appellant by Sister Bonga was not substandard. The high court accepted Sister Bonga’s evidence that the assessment and examination of the appellant was done at the correct intervals; the foetal heart rate was always normal, the existence of Grade 1 meconium was not an indication of foetal distress, and Sister Bonga did not observe any warning sign which was threatening to the well-being of the foetus. The high court also accepted Sister Bonga’s evidence that the cord that was wrapped thrice around the baby’s neck was not tight as she managed to put her finger between the cord and his neck to clamp and cut the cord. The evidence of Dr Ebrahim was rejected by the court as being extremely confusing and not fact based. The high court concluded that ‘the loose nuchal cord did not cause acute profound hypoxic ischaemic brain injury in this case’. Consequently, the appellant’s claims were dismissed with costs. This appeal is with the leave of the high court.    In this Court  Evaluation of expert evidence
+    </p>
+
+<h4 class="judgment-subheading">Evaluation of expert evidence</h4>
+    <p class="judgment-paragraph" id="paragraph-13">
+      <span class="paragraph-number">[13]</span>
+      The legal principles applicable to the evaluation of expert evidence was outlined by this Court in AM and another v MEC Health, Western Cape,[4] as follows:  ‘. . . <span class="legal-principle" onclick="openCommentary('expertFunctions')">The functions of an expert witness are threefold.</span> First, where they have themselves observed relevant facts that evidence will be evidence of fact and [be] admissible as such. Second, they provide the court with abstract or general knowledge concerning their discipline that is necessary to enable the court to understand the issue arising in litigation. This includes evidence of the current state of knowledge and generally accepted practice in the field in question. Although such evidence can only be given by an expert qualified in the relevant field, it remains, at the end of the day, essentially evidence of fact on which the court will have to make factual findings. It is necessary to enable the court to assess the validity of opinions that they express. Third, they give evidence concerning their own inferences and opinions on the issues in the case and the grounds for drawing those inferences and expressing those conclusions.’[5]
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-14">
+      <span class="paragraph-number">[14]</span>
+      That being so, this Court had earlier on in Michael and Another v Linksfield Park Clinic (Pty) Ltd and Another[6] cautioned that <span class="legal-principle" onclick="openCommentary('expertOpinion')">courts should be slow to conclude that the views genuinely held by competent expert are unreasonable</span>. The Court further warned that a court is not bound to absolve a defendant from liability for allegedly negligent medical treatment or diagnosis just because expert opinion evidence is that treatment or diagnosis was in accordance with sound medical practice.
+    </p>
+
+<h4 class="judgment-subheading">Damage</h4>
+    <p class="judgment-paragraph" id="paragraph-15">
+      <span class="paragraph-number">[15]</span>
+      Having stated the above. I turn to the claim itself. It is clear that SN’s claim is based on the Lex Aquilia. <span class="legal-principle" onclick="openCommentary('lexAquilia')">The requirements of Lex Aquilia are a wrongful act which caused injury or damage.</span>    Damage
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-16">
+      <span class="paragraph-number">[16]</span>
+      As regards injury, it is common cause that ON suffered damage. He is a cerebral palsy (CP) baby. This is confirmed in the joint minute report of both the obstetricians, Dr Ebrahim and Dr Frank and that of the radiologists, Dr Kara and Dr Lewis.    Causation
+    </p>
+
+<h4 class="judgment-subheading">Causation</h4>
+    <p class="judgment-paragraph" id="paragraph-17">
+      <span class="paragraph-number">[17]</span>
+      The question is what caused ON to be a CP baby. There is uncontested evidence that there was a cord around ON’s neck. This cord was wrapped thrice around his neck. The MCR recorded the cord around the neck as a complication. Dr Ebrahim opined that ‘in the absence of an observable sentinel event, the cord was clearly tightly around the neonate’s neck giving signs of near strangulation and WAS the sentinel event.’ He concluded that <span class="legal-principle" onclick="openCommentary('cordCausation')">the cord that was wrapped around ON’s neck was the more probable cause of the injury</span> as opposed to the cord compression. His reason was that ‘tight nuchal cords are more commonly associated with cerebral palsy as opposed to a terminal bradycardia causing sentinel brain damage.’
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-18">
+      <span class="paragraph-number">[18]</span>
+      The above obstetricians’ opinion was admitted by the MEC in her formal admissions. The admission was also confirmed by Counsel for the MEC at the commencement of the trial. The admission that there was an occlusion caused by the cord was therefore not simply an admission of the opinion of an expert or the joint opinion of experts; it is free standing and meant that <span class="legal-principle" onclick="openCommentary('causationAdmission')">causation was no longer an issue in dispute</span>. Therefore, it was a hypoxic ischaemic event (a reduction or blockage of blood flow to a specific area of the body, leading to a shortage of oxygen and nutrients) that caused ON’s injury.
+    </p>
+
+<h4 class="judgment-subheading">Negligence</h4>
+    <p class="judgment-paragraph" id="paragraph-19">
+      <span class="paragraph-number">[19]</span>
+      This brings me to the next issue, namely negligence: <span class="legal-principle" onclick="openCommentary('preventability')">whether the cord occlusion could have been detected and steps taken to avoid an ischaemic hypoxic injury timeously</span>.    Negligence
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-20">
+      <span class="paragraph-number">[20]</span>
+      The test as for negligence, is trite,[7] it rests on two bases, namely, <span class="legal-principle" onclick="openCommentary('negligenceTest')">reasonable foreseeability and the reasonable preventability of damage and failure to act accordingly</span>. What is or is not reasonably foreseeable in a particular case is a fact-bound enquiry.[8]
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-21">
+      <span class="paragraph-number">[21]</span>
+      <span class="legal-principle" onclick="openCommentary('guidelines')">The standards that were applicable in clinics and district hospitals in South Africa at the time of ON’s birth were those specified in the Guidelines for Maternity Care in South Africa 2007</span>, which emphasise the necessity to monitor a woman in labour. They set out the standard of monitoring that is considered appropriate. The guidelines state that when the patient is in the active phase of labour ie when the cervix is 4cm dilated, the FHR should be checked every half an hour - before, during and after every contraction. However, in this case, SN was assessed at 10h00 and there is no record of any monitoring at 10h30 or 11h00, or when NS was fully dilated at 11h15. There is only one period of monitoring recorded which, on the mental recollection of Sister Bonga, is alleged to have been somewhere between 11h30 and 12h00.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-22">
+      <span class="paragraph-number">[22]</span>
+      Dr Ebrahim explained how the injury normally occurs: According to him, <span class="legal-principle" onclick="openCommentary('injuryMechanism')">the injury to the brain is caused by an acute drop in oxygen levels in the foetus</span>. He went on to explain what happens in the circulation of the foetus when it is deprived of oxygen. During labour, the foetus is naturally exposed to slight drops of oxygen levels. But a healthy foetus is able to handle that without any changes in its heartbeat. However, when the oxygen levels of the foetus drop to below 50 percent of norm, it affects the cardiovascular response of the foetus. What happens is that the foetus’ heart rate slows down in the face of this reduced oxygen supply from the maternal circulation, and this is mainly a defence mechanism for the heart to reduce its oxygen consumption so that the heart does not fail. The foetus slows down the heart, so it works less and therefore consumes less oxygen in the environment of reduced oxygen. As a result, the heart does not function at its normal rate above 110 bpm but rather does so at a reduced level because the normal level requires that it must use up more oxygen.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-23">
+      <span class="paragraph-number">[23]</span>
+      According to Dr Ebrahim, there is an additional mechanism in the circulation that prevents the vital organs, other than the heart, from being compromised by the reduced oxygen output. This mechanism, preferentially distributes whatever oxygen there is to the vital organs, that is, the brain, the kidneys, and the adrenal glands. The initial response is a drop in the heartbeat, which is called a bradycardia. This bradycardia will last for the duration of the contraction, because the contraction is the cause of the reduced oxygen - transient reduction in oxygen. And when the contraction is over, the heartbeat returns to normal, because it is again getting a normal supply of oxygen. But, if a drop in oxygen does not recover, the bradycardia will remain because the heart is being deprived of oxygen for a prolonged period of time. As a result of that prolonged bradycardia, the eventual supply of oxygen to the brain is also compromised to the extent that the brain suffers acute damage.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-24">
+      <span class="paragraph-number">[24]</span>
+      The uncontested evidence of Dr Ebrahim was that the injury or the hypoxic ischaemic episode would have manifested itself in decelerations of the FHR which would normally be noted with adequate monitoring. He opined that foetal distress is unpredictable and can occur even in low-risk pregnancies. However, he was of the opinion that <span class="legal-principle" onclick="openCommentary('fhrWarning')">FHR abnormalities are the first signs of such foetal distress.</span> Therefore, FHR monitoring is a universal requirement in labour cases. According to Dr Ebrahim, in the face of the foetal distress, the desired preventive action indicated in the maternity guidelines would have been sufficient to expedite ON’s delivery and would have prevented his brain injury.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-25">
+      <span class="paragraph-number">[25]</span>
+      It is clear on the probabilities in this matter that the injury was caused by the cord around the neck of ON. Such injury, according to Dr Ebrahim, could have been prevented by proper monitoring by the nursing staff to determine whether there were FHR decelerations. There was however no monitoring at 10h30 up to 11h00. There was also no monitoring at 11h15 when SN was fully dilated, and none at 11h30 when SN started bearing down and the cord probably tightened. This was a serious and critical period to determine any deceleration in the FHR, yet it is clear from Sister Bonga’s evidence that the nursing staff did not take reasonable and necessary steps to monitor the FHR of ON. Sister Bonga’s evidence points to clear substandard monitoring that did not accord with the standards set out in the guidelines. According to her evidence, the FHR was 138 bpm at around 10h00 and 136 bpm somewhere around 11h30 and 12h00. <span class="legal-principle" onclick="openCommentary('probabilityMonitoring')">On the probabilities, that reading cannot be correct because shortly thereafter ON was born floppy and lethargic.</span>
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-26">
+      <span class="paragraph-number">[26]</span>
+      Of much concern in the evidence of Sister Bonga is that she recorded in the MCR that the cord around the neck was a complication yet she did not indicate whether the cord was tight or loose. She did not indicate whether the meconium, which is indicative of foetal stress, was thin or thick. She had no recollection of what happened to the patient except for what she recorded in the MCR and what she would normally do in the circumstance. Curiously, she could recall that she got her finger under the cord and cut it yet this was never recorded in any of the hospital records. How she remembered this, remains a mystery.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-27">
+      <span class="paragraph-number">[27]</span>
+      In my view, Sister Bonga was not an honest and trustworthy witness. Her evidence should have been rejected as being unreliable and not credible. On the contrary, I find the evidence of Dr Ebrahim to be more probable as it is consistent with the probabilities on the evidence viewed as a whole. He gave evidence concerning his ‘own inferences and opinions on the issues in the case and the grounds for drawing those inferences and expressing those conclusions.’[9] His conclusions were not unreasonably arrived at. They were based on genuine views and logical reasoning.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-28">
+      <span class="paragraph-number">[28]</span>
+      In conclusion, nuchal cords wrapped around the neck of foetuses occur frequently[10] but they do not all result in CP births. Few do.  This is because <span class="legal-principle" onclick="openCommentary('reasonableNurse')">they are generally, on probabilities, identified early enough by proper or standard monitoring, picking up the foetal distress shown by decelerations or otherwise, and are then dealt with by timeous interventions.</span> That is what a reasonable member of the nursing staff would have done. The MEC’s employees failed to do so.
+    </p>
+
+    <p class="judgment-paragraph" id="paragraph-29">
+      <span class="paragraph-number">[29]</span>
+      In the result, the following order is made:  1        The appeal is upheld with costs.  2        The order of the high court is set aside and replaced with the following:  ‘The defendant is ordered to pay the plaintiff’s agreed or proven damages with costs’      F E Mokgohloa  Judge of Appeal
+    </p>
+
+  </div>
+</section>
+
+<div
+  id="commentary-overlay"
+  onclick="closeCommentary()"
+></div>
+
+
+<!-- ================================
+     COMMENTARY POPOVER
+================================ -->
+
+<div id="commentary-popover">
+
+  <div class="commentary-header">
+
+    <h3 id="commentary-title">
+      Legal Analysis
+    </h3>
+
+    <button
+      class="close-commentary"
+      onclick="closeCommentary()"
+    >
+      ×
+    </button>
+
+  </div>
+
+
+  <div class="commentary-body">
+
+
+    <!-- LEGAL PRINCIPLE -->
+
+    <div class="commentary-section">
+
+      <div class="commentary-label">
+        Legal Principle
+      </div>
+
+      <p id="commentary-principle"></p>
+
+    </div>
+
+
+
+    <!-- WHAT DOES THIS MEAN HERE? -->
+
+    <div class="commentary-section">
+
+      <div class="commentary-label" id="meaning-label">
+        What Does This Mean Here?
+      </div>
+
+      <p id="commentary-meaning"></p>
+
+    </div>
+
+
+
+    <!-- LEGAL DUTY -->
+
+    <div
+      class="commentary-section"
+      id="duty-section"
+    >
+
+      <div class="commentary-label" id="duty-label">
+        What Was the Legal Duty?
+      </div>
+
+      <p id="commentary-duty"></p>
+
+    </div>
+
+
+
+    <!-- BREACH -->
+
+    <div
+      class="commentary-section"
+      id="breach-section"
+    >
+
+      <div class="commentary-label" id="breach-label">
+        How Is the Breach Established?
+      </div>
+
+      <p id="commentary-breach"></p>
+
+    </div>
+
+
+
+    <!-- WHY IT MATTERS -->
+
+    <div class="commentary-section">
+
+      <div class="commentary-label" id="matters-label">
+        Why Does It Matter?
+      </div>
+
+      <p id="commentary-matters"></p>
+
+    </div>
+
+
+
+    <!-- POSSIBLE SUBMISSION -->
+
+    <div class="commentary-section">
+
+      <div class="commentary-label" id="submission-label">
+        Possible Submission
+      </div>
+
+      <div class="submission-box">
+
+        <p>
+          This is the argument that could be advanced
+          on behalf of the relevant party.
+        </p>
+
+        <button
+          class="primary-button"
+          onclick="toggleSubmission()"
+        >
+          Show Submission
+        </button>
+
+        <div
+          id="submission-text"
+          class="submission-text"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- OPPOSING SUBMISSION -->
+
+    <div class="commentary-section">
+
+      <div class="commentary-label" id="opposition-label">
+        Opposing Submission
+      </div>
+
+      <div class="opposition-box">
+
+        <p id="commentary-opposition"></p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ADVOCACY PRACTICE -->
+
+    <div class="commentary-section">
+
+      <div class="commentary-label" id="practice-label">
+        Practice This Argument
+      </div>
+
+      <p>
+        Read the submission aloud and record your advocacy.
+      </p>
+
+
+      <div class="recording-box">
+
+        <div
+          id="recording-status"
+          class="recording-status"
+        >
+          Ready to record.
+        </div>
+
+
+        <button
+          class="primary-button"
+          onclick="startRecording()"
+        >
+          Record
+        </button>
+
+
+        <button
+          class="secondary-button"
+          onclick="stopRecording()"
+        >
+          Stop
+        </button>
+
+
+        <button
+          class="secondary-button"
+          onclick="clearRecording()"
+        >
+          Clear
+        </button>
+
+
+        <audio
+          id="audio-player"
+          controls
+        ></audio>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<footer>
+
+  Fluently Case Analysis
+
+</footer>
+
+
+
+<script>
+
+/* =========================================
+   COMMENTARY DATA
+========================================= */
+
+const commentaryData = {
+  "vicarious": {
+    "title": "Vicarious Liability — Hospital Staff",
+    "principle": "The MEC would be vicariously liable for damages caused by negligent conduct of the hospital staff.",
+    "meaningLabel": "What Does Vicarious Liability Do Here?",
+    "meaning": "The passage identifies the legal relationship between the hospital staff whose conduct is alleged to have caused the injury and the MEC sued for the resulting damages. The focus of the appeal was the staff's conduct, while the MEC was the party against whom the claim was brought.",
+    "dutyLabel": "Whose Conduct Must Be Examined?",
+    "duty": "The judgment examines what the hospital staff did or failed to do during the birth process. Their alleged failures included inadequate monitoring of the mother and foetal heart rate and failure to detect foetal distress.",
+    "breachLabel": "What Conduct Was Alleged to Be Negligent?",
+    "breach": "The pleaded case identified failures to monitor, record and manage the labour properly, including failure to monitor the foetal heart rate with sufficient frequency and failure to detect foetal distress.",
+    "mattersLabel": "Why Does the Relationship Matter?",
+    "matters": "It explains why the conduct of individual hospital staff is central to the claim even though the proceedings were brought against the MEC.",
+    "submissionLabel": "What Could Be Submitted About Liability?",
+    "submission": "My Lord/My Lady, the claim is directed at the negligent conduct of the hospital staff whose employment relationship places the resulting liability upon the MEC. The enquiry therefore begins with whether the staff breached the applicable standard of care and whether that conduct caused the child's injury.",
+    "oppositionLabel": "What Might the MEC Argue?",
+    "opposition": "The MEC may focus on disputing negligence or causation by contending that the staff did not breach the applicable standard or that any breach was not the cause of the child's injury.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Frame the case in two stages: identify the conduct of the hospital staff, then explain why the legal consequences of that conduct fall upon the MEC."
+  },
+  "duty": {
+    "title": "Legal Duty — Care During Labour",
+    "principle": "The judgment treats the hospital staff's responsibility during labour as involving a duty to provide appropriate care and monitoring.",
+    "meaningLabel": "When Did the Duty Arise?",
+    "meaning": "The judgment places the duty in the context of the mother's admission to hospital in labour. The relevant responsibility was not abstract: it concerned the care and monitoring required during the birth process.",
+    "dutyLabel": "What Did the Duty Require?",
+    "duty": "The practical duties pleaded and considered in the case included proper assessment, monitoring and management of labour and accurate and sufficiently frequent foetal heart-rate monitoring.",
+    "breachLabel": "How Could the Duty Be Breached?",
+    "breach": "A breach could arise where required monitoring was omitted, inadequately performed or inaccurately recorded, particularly where the omission prevented detection of foetal distress.",
+    "mattersLabel": "Why Does the Duty Matter?",
+    "matters": "Identifying the precise duty allows the court to compare what should have happened with what the hospital staff actually did.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, once the patient was in labour, the hospital staff had to provide the level of monitoring and care required by the applicable standard. The evidence must therefore be tested against that obligation, not against an undefined notion of good care.",
+    "oppositionLabel": "What Might the MEC Argue?",
+    "opposition": "The MEC may contend that the required care was in fact provided or that the evidence does not establish a departure from the applicable standard.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "State the duty in one sentence, then identify the exact act or omission said to constitute the breach."
+  },
+  "admission": {
+    "title": "Formal Admission — Substandard Monitoring",
+    "principle": "The judgment records a formal admission that foetal heart-rate monitoring was sub-standard because it did not comply with the applicable maternity guidelines.",
+    "meaningLabel": "What Was Actually Admitted?",
+    "meaning": "The MEC admitted the guideline requirements, admitted that monitoring did not comply with those requirements, and accepted that it was therefore unknown whether foetal heart-rate abnormalities had been present.",
+    "dutyLabel": "What Standard Was Accepted?",
+    "duty": "The accepted standard required foetal heart-rate checks at specified intervals during labour, including checks around contractions and more frequent monitoring during the second stage.",
+    "breachLabel": "How Does the Admission Establish Breach?",
+    "breach": "Because the MEC admitted that monitoring was not performed in accordance with the guidelines, the dispute was not simply about what ideal care might have looked like. The judgment treated the sub-standard monitoring as admitted negligence.",
+    "mattersLabel": "Why Is This Admission Important?",
+    "matters": "It narrows the litigation. Once sub-standard monitoring is admitted, the central questions become what that failure meant medically and whether it caused the injury.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the respondent's own formal admission establishes that the foetal heart rate was not monitored according to the applicable guidelines and that the presence or absence of abnormalities was consequently unknown. The remaining enquiry is what that failure meant for detection, intervention and causation.",
+    "oppositionLabel": "What Might Still Be Argued?",
+    "opposition": "Even with negligence admitted, the MEC may argue that the omission did not cause the injury and that the medical evidence does not establish that proper monitoring would probably have changed the outcome.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Separate the admitted breach from the disputed consequence: negligence is one question; causation is another."
+  },
+  "expertFunctions": {
+    "title": "Expert Evidence — Three Functions",
+    "principle": "The judgment explains that expert evidence may provide evidence of observed facts, general knowledge in the expert's discipline, and the expert's own inferences and opinions with their grounds.",
+    "meaningLabel": "What Is the Expert Actually Giving the Court?",
+    "meaning": "An expert does not simply announce a conclusion. The court must understand the relevant medical knowledge, the factual foundation for the opinion and the reasoning connecting those facts to the conclusion.",
+    "dutyLabel": "What Must the Court Understand?",
+    "duty": "The court must be able to assess the factual and medical basis of the opinion before deciding what weight to attach to it.",
+    "breachLabel": "How Can Expert Evidence Address Breach?",
+    "breach": "Experts can explain the applicable medical practice and whether the conduct recorded in the medical records departed from that practice.",
+    "mattersLabel": "Why Does This Matter?",
+    "matters": "It prevents the court from treating an expert's conclusion as determinative without examining the reasoning behind it.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the expert evidence should be assessed by identifying the factual foundation, the relevant medical knowledge and the reasoning by which the expert reaches the conclusion. The weight of the opinion depends upon that chain of reasoning.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may challenge the factual foundation, methodology or reasoning underlying the expert's conclusion rather than merely disagreeing with the conclusion itself.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Explain an expert opinion as a chain: facts → medical principle → reasoning → conclusion."
+  },
+  "expertOpinion": {
+    "title": "Expert Evidence — Logical Reasoning",
+    "principle": "A court must examine whether a competent expert's opinion is reasonably held and whether it is supported by sound reasoning; expert opinion does not automatically determine liability.",
+    "meaningLabel": "What Must the Court Test?",
+    "meaning": "The court is required to engage with the reasoning supporting the medical opinion. A genuinely held expert view is not automatically accepted merely because the witness is qualified.",
+    "dutyLabel": "What Is the Court's Role?",
+    "duty": "The court remains responsible for making the factual findings and deciding what the evidence establishes.",
+    "breachLabel": "How Does This Affect the Negligence Enquiry?",
+    "breach": "The court must assess whether the medical opinion about the applicable standard and the conduct of the staff is logically supported by the facts.",
+    "mattersLabel": "Why Does This Matter?",
+    "matters": "It provides a disciplined method for dealing with competing expert opinions and prevents a case from being decided merely by counting experts.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the question is not which expert appears more confident. It is whether the opinion relied upon is founded on facts and logical reasoning and can reasonably be held on the evidence.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may submit that an expert's conclusion is unsupported by the objective records or that the chain of reasoning contains an unexplained assumption.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Take one expert conclusion and identify the factual premises and reasoning that must be accepted before the conclusion follows."
+  },
+  "lexAquilia": {
+    "title": "Lex Aquilia — Wrongful Act, Injury and Damage",
+    "principle": "The judgment states that the requirements of the Lex Aquilia include a wrongful act which caused injury or damage.",
+    "meaningLabel": "What Elements Are Being Identified?",
+    "meaning": "This passage places the claim within the delictual framework and identifies wrongful conduct and causally connected injury or damage as central requirements.",
+    "dutyLabel": "What Conduct Is Under Examination?",
+    "duty": "The conduct under examination is the hospital staff's alleged failure to monitor and manage the labour properly.",
+    "breachLabel": "What Must Be Connected to the Injury?",
+    "breach": "The wrongful conduct must be linked to the actual injury or damage. Establishing a departure from proper care does not, by itself, answer the causation question.",
+    "mattersLabel": "Why Does This Matter?",
+    "matters": "It keeps the analysis structured: wrongful conduct and injury must be connected through the causation enquiry.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the delictual enquiry requires more than proof of an unfortunate medical outcome. The plaintiff must connect the wrongful conduct to the injury on the evidence.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may accept that injury occurred but dispute whether the alleged wrongful conduct caused it.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "State separately what the wrongful conduct was, what injury occurred, and what evidence connects the two."
+  },
+  "cordCausation": {
+    "title": "Causation — The Nuchal Cord",
+    "principle": "The judgment records expert evidence that the cord wrapped around ON's neck was the more probable cause of the injury.",
+    "meaningLabel": "What Cause Does the Evidence Identify?",
+    "meaning": "The medical evidence linked the brain injury to the nuchal cord and treated the cord as the more probable explanation in the circumstances described.",
+    "dutyLabel": "What Does the Cause Have to Do With Negligence?",
+    "duty": "Once the medical cause is identified, the next question is whether proper monitoring would probably have detected the developing problem in time for intervention.",
+    "breachLabel": "Where Does the Monitoring Failure Fit?",
+    "breach": "The alleged breach is important because the judgment later asks whether the cord occlusion could have been detected and addressed before the injury occurred.",
+    "mattersLabel": "Why Does the Causal Cause Matter?",
+    "matters": "It identifies the medical event that must be connected to the negligent failure to monitor.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the evidence identifies the nuchal cord and the resulting hypoxic-ischaemic event as the medical cause. The question then becomes whether proper monitoring would probably have detected the developing distress in sufficient time to prevent the injury.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may challenge whether the cord caused the injury in the manner alleged or whether monitoring would probably have altered the outcome.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Distinguish the medical cause of the injury from the legal question whether the negligent omission caused that medical event to produce compensable loss."
+  },
+  "causationAdmission": {
+    "title": "Causation — Effect of the Formal Admission",
+    "principle": "The judgment treats the MEC's admission concerning the cord occlusion and the hypoxic-ischaemic event as removing causation from dispute at that stage of the case.",
+    "meaningLabel": "What Did the Admission Remove From the Dispute?",
+    "meaning": "The judgment states that the admission was free-standing rather than merely an admission of an expert opinion and therefore meant that causation was no longer an issue in dispute in the way the parties had framed it.",
+    "dutyLabel": "What Question Remained?",
+    "duty": "The remaining enquiry concerned negligence: whether the cord occlusion could have been detected and whether steps could have been taken timeously to avoid the injury.",
+    "breachLabel": "How Does This Narrow the Case?",
+    "breach": "The focus shifts from identifying the medical event to asking whether the staff's failure to monitor prevented timely detection and intervention.",
+    "mattersLabel": "Why Does the Admission Matter?",
+    "matters": "It demonstrates how a formal admission can materially narrow the factual issues requiring determination at trial.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the respondent's admission removes the identified medical event from the field of factual dispute as described in the judgment. The remaining issue is whether the negligent monitoring failure deprived the child of timely detection and intervention.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may focus on the scope and consequences of the admission and maintain that, even accepting the medical event, the claimant must still establish the negligent failure and its preventability.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Explain precisely what an admission takes out of dispute and what questions remain for the court."
+  },
+  "preventability": {
+    "title": "Negligence — Detection and Preventability",
+    "principle": "The court asks whether the cord occlusion could have been detected and whether steps could have been taken in time to avoid the hypoxic-ischaemic injury.",
+    "meaningLabel": "What Is the Practical Question?",
+    "meaning": "The enquiry connects the medical event to the standard of care. It asks whether adequate monitoring would have revealed the problem while there was still an opportunity to intervene.",
+    "dutyLabel": "What Did Proper Care Require?",
+    "duty": "Proper care required monitoring capable of identifying developing foetal distress and appropriate action once warning signs appeared.",
+    "breachLabel": "What Makes the Omission Material?",
+    "breach": "The omission matters if the evidence shows that adequate monitoring would probably have identified the problem early enough for an effective response.",
+    "mattersLabel": "Why Does Preventability Matter?",
+    "matters": "It links foreseeability, reasonable response and the opportunity to avoid harm rather than treating the injury itself as proof of negligence.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the evidence must be assessed by asking whether the danger was detectable and whether reasonable nursing staff, acting on the information proper monitoring would have produced, could have intervened in time.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may contend that the event occurred too rapidly to be detected or prevented, or that the evidence does not establish that an intervention would probably have avoided the injury.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Present the chain as detection → warning sign → available intervention → likely prevention."
+  },
+  "negligenceTest": {
+    "title": "Negligence — Foreseeability and Preventability",
+    "principle": "The judgment states that negligence rests on reasonable foreseeability and reasonable preventability of damage, together with failure to act accordingly.",
+    "meaningLabel": "What Is the Negligence Test Asking?",
+    "meaning": "The enquiry is fact-bound. The court must determine what harm could reasonably have been foreseen and what reasonable steps could have been taken to prevent it.",
+    "dutyLabel": "What Was Foreseeable?",
+    "duty": "In the context of labour monitoring, the relevant risk concerns deterioration of the foetus and the consequences of failing to detect warning signs.",
+    "breachLabel": "What Reasonable Response Was Required?",
+    "breach": "The question is whether the nursing staff failed to take reasonable steps that would have addressed the foreseeable risk.",
+    "mattersLabel": "Why Does This Test Matter?",
+    "matters": "It prevents hindsight from becoming the legal test. The court must assess foreseeability and preventability in the circumstances confronting the staff.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the evidence demonstrates a foreseeable risk during labour and identifies the monitoring and intervention steps that reasonable nursing staff would have taken. The failure to take those steps establishes the negligent departure from the required standard.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may argue that the particular harm was not reasonably foreseeable in the circumstances or that reasonable intervention would not probably have prevented it.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Answer two questions: what harm was reasonably foreseeable, and what reasonable step could have prevented it?"
+  },
+  "guidelines": {
+    "title": "Standard of Care — Maternity Guidelines",
+    "principle": "The Guidelines for Maternity Care in South Africa 2007 supplied the applicable monitoring standard identified by the court.",
+    "meaningLabel": "What Standard Applied?",
+    "meaning": "The judgment uses the 2007 maternity guidelines to identify what appropriate foetal monitoring required in the circumstances.",
+    "dutyLabel": "What Did the Guidelines Require?",
+    "duty": "During the active phase, the foetal heart rate was to be checked every half hour, before, during and after every contraction, with the judgment identifying significant gaps in the actual monitoring.",
+    "breachLabel": "How Was Departure Shown?",
+    "breach": "The record contained no monitoring at several critical times identified by the court, including periods when the mother was fully dilated and beginning to bear down.",
+    "mattersLabel": "Why Are Guidelines Important?",
+    "matters": "They provide an objective reference point against which the conduct of the nursing staff can be assessed.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the applicable guidelines provide a concrete standard against which the monitoring can be measured. The recorded gaps are therefore not merely matters of clinical preference; they represent departures from the identified standard of care.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may argue about the interpretation or application of the guidelines to the particular clinical circumstances, although the judgment treats them as the applicable monitoring standard.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Identify the guideline requirement, identify what the records show, and state the precise departure."
+  },
+  "injuryMechanism": {
+    "title": "Medical Causation — How Hypoxia Produces Brain Injury",
+    "principle": "The expert evidence explains how a sustained reduction in foetal oxygen can produce bradycardia and ultimately compromise oxygen supply to the brain.",
+    "meaningLabel": "What Medical Mechanism Did the Expert Explain?",
+    "meaning": "The explanation links reduced oxygen, changes in foetal heart rate and prolonged deprivation of oxygen to injury to the brain.",
+    "dutyLabel": "Why Is the Mechanism Relevant to Monitoring?",
+    "duty": "If foetal distress manifests in detectable heart-rate changes, understanding the mechanism explains why heart-rate monitoring can provide an opportunity to detect the developing danger.",
+    "breachLabel": "How Does the Mechanism Support the Negligence Enquiry?",
+    "breach": "The mechanism provides the medical bridge between the failure to monitor and the alleged missed opportunity to detect deterioration.",
+    "mattersLabel": "Why Does the Mechanism Matter?",
+    "matters": "It helps the court understand why the monitoring required by the guidelines could have been clinically significant.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the expert explanation provides a coherent medical sequence from reduced oxygen to bradycardia and brain injury. The court can therefore assess whether the omitted monitoring was capable of detecting the developing injury mechanism in time.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may challenge whether the proposed sequence occurred in this particular case or whether the available monitoring would probably have detected it early enough.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Explain the medical mechanism in plain language and then connect it to the monitoring obligation."
+  },
+  "fhrWarning": {
+    "title": "Foetal Heart Rate — First Signs of Distress",
+    "principle": "The judgment records the expert view that foetal heart-rate abnormalities are the first signs of foetal distress and that monitoring is a universal requirement in labour.",
+    "meaningLabel": "Why Is the FHR Significant?",
+    "meaning": "The significance lies in its role as an observable indicator of foetal distress. The judgment connects the detection of abnormalities to the possibility of timely preventive action.",
+    "dutyLabel": "What Was Staff Expected to Monitor?",
+    "duty": "Staff were expected to monitor the foetal heart rate at the intervals required by the applicable guidelines.",
+    "breachLabel": "What Was Missed?",
+    "breach": "The alleged breach was the failure to perform sufficient monitoring capable of detecting decelerations or other abnormalities.",
+    "mattersLabel": "Why Does This Matter to Causation?",
+    "matters": "If monitoring would probably have revealed distress while intervention remained possible, the monitoring failure becomes relevant not only to negligence but also to causation.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the evidence identifies foetal heart-rate abnormalities as the first signs of distress. The failure to monitor therefore removed the very opportunity through which the developing danger could have been detected and acted upon.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may argue that there is insufficient evidence to establish what the FHR would have shown at the omitted monitoring points or that the distress would not have been preventable.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Explain why the FHR is not merely a number in the record but an indicator that can trigger clinical action."
+  },
+  "probabilityMonitoring": {
+    "title": "Evidence — Testing the Recorded FHR Against the Outcome",
+    "principle": "The court tested the reliability of the recorded FHR against the surrounding evidence and the baby's condition immediately after birth.",
+    "meaningLabel": "How Did the Court Use Probability?",
+    "meaning": "The court considered whether the recorded reading could realistically be correct when compared with the fact that the baby was born floppy and lethargic shortly afterwards.",
+    "dutyLabel": "What Evidence Was Relevant?",
+    "duty": "The relevant evidence included the monitoring records, the nurse's testimony and the condition of the baby after birth.",
+    "breachLabel": "What Did the Inconsistency Show?",
+    "breach": "The court regarded the recorded reading as inconsistent with the subsequent clinical condition and therefore rejected it as a reliable basis for concluding that monitoring had been adequate.",
+    "mattersLabel": "Why Does This Reasoning Matter?",
+    "matters": "It demonstrates how a court can assess medical records against the totality of the evidence rather than accepting an isolated entry automatically.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the reliability of the recorded FHR must be tested against the surrounding evidence. Where the recorded reading is inconsistent with the baby's condition shortly thereafter, the court is entitled to scrutinise whether the entry reliably reflects actual monitoring.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may argue that the recorded reading was accurate and that the later clinical condition has another explanation.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Take the record entry, identify the evidence that supports it, and then identify the evidence that undermines its reliability."
+  },
+  "reasonableNurse": {
+    "title": "Standard of Care — What Reasonable Nursing Staff Would Have Done",
+    "principle": "The court concluded that proper monitoring would ordinarily identify foetal distress and permit timely intervention, and that a reasonable member of the nursing staff would have acted accordingly.",
+    "meaningLabel": "What Would Reasonable Care Have Looked Like?",
+    "meaning": "The judgment describes a practical sequence: proper monitoring detects warning signs, the staff recognise the danger, and appropriate intervention follows in time.",
+    "dutyLabel": "What Was the Reasonable Response?",
+    "duty": "The reasonable response was to monitor adequately, identify foetal distress and take timeous steps to expedite delivery where necessary.",
+    "breachLabel": "How Was the Departure Demonstrated?",
+    "breach": "The court found that the MEC's employees failed to undertake the monitoring and intervention that reasonable nursing staff would have undertaken.",
+    "mattersLabel": "Why Is This the Final Link?",
+    "matters": "This passage brings together the standard of care, the monitoring failure, the opportunity for intervention and the causal connection to the injury.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the evidence demonstrates what reasonable nursing staff would have done: monitor closely, identify foetal distress and intervene timeously. The employees failed to do so, and that failure is the conduct from which liability follows on the court's findings.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may argue that the evidence does not establish that the warning signs would have appeared early enough or that intervention would probably have prevented the injury.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Finish the argument as a sequence: standard → departure → missed warning → available intervention → injury."
+  },
+  "monitoringRecord": {
+    "title": "Medical Records — What Was Actually Recorded?",
+    "principle": "The judgment highlights that the Maternity Case Record did not show further assessment after 10h00, while the partogram recorded a later assessment.",
+    "meaningLabel": "What Does the Record Actually Show?",
+    "meaning": "The court identified a discrepancy between the Maternity Case Record and the partogram about when further assessment occurred. That discrepancy becomes important when evaluating whether monitoring was actually performed at the required intervals.",
+    "dutyLabel": "What Should the Records Have Captured?",
+    "duty": "The records needed to reflect the monitoring required during labour, including sufficiently frequent assessment of the foetal heart rate.",
+    "breachLabel": "Why Can a Record Gap Matter?",
+    "breach": "A gap in the records may support the inference that required monitoring did not occur, particularly where the applicable standard required monitoring at specific intervals.",
+    "mattersLabel": "Why Is the Record Important?",
+    "matters": "Medical records are not merely administrative documents in a negligence case. They can provide objective evidence of what monitoring occurred and can expose gaps between required care and recorded care.",
+    "submissionLabel": "What Could Be Submitted?",
+    "submission": "My Lord/My Lady, the contemporaneous records should be examined against the required monitoring intervals. Where the Maternity Case Record contains no assessment after 10h00 and the later timing is itself disputed, the court is entitled to scrutinise whether the required monitoring was actually performed.",
+    "oppositionLabel": "What Might the Other Side Argue?",
+    "opposition": "The opposing party may rely on the later partogram entry and the nurse's recollection to contend that monitoring did occur, despite the absence of corresponding entries in the Maternity Case Record.",
+    "practiceLabel": "How Can You Practise This Point?",
+    "practice": "Compare the required monitoring times with the actual entries, then explain what the gaps do—or do not—prove."
+  }
+};
+
+
+/* =========================================
+   OPEN COMMENTARY
+========================================= */
+
+function openCommentary(key) {
+
+  const data = commentaryData[key];
+
+  if (!data) {
+    return;
+  }
+
+  document.getElementById("commentary-title").textContent =
+    data.title;
+
+  document.getElementById("commentary-principle").textContent =
+    data.principle;
+
+  /* Each commentary point can ask the question that actually fits
+     the legal issue being analysed. */
+  document.getElementById("meaning-label").textContent =
+    data.meaningLabel || "What Does This Mean Here?";
+
+  document.getElementById("duty-label").textContent =
+    data.dutyLabel || "What Was the Legal Duty?";
+
+  document.getElementById("breach-label").textContent =
+    data.breachLabel || "How Is the Breach Established?";
+
+  document.getElementById("matters-label").textContent =
+    data.mattersLabel || "Why Does It Matter?";
+
+  document.getElementById("submission-label").textContent =
+    data.submissionLabel || "What Could Be Submitted?";
+
+  document.getElementById("opposition-label").textContent =
+    data.oppositionLabel || "What Might the Opposing Side Argue?";
+
+  document.getElementById("practice-label").textContent =
+    data.practiceLabel || "How Can You Practise This Argument?";
+
+  document.getElementById("commentary-meaning").textContent =
+    data.meaning;
+
+  document.getElementById("commentary-duty").textContent =
+    data.duty;
+
+  document.getElementById("commentary-breach").textContent =
+    data.breach;
+
+  document.getElementById("commentary-matters").textContent =
+    data.matters;
+
+  document.getElementById("submission-text").textContent =
+    data.submission;
+
+  document.getElementById("commentary-opposition").textContent =
+    data.opposition;
+
+
+  document.getElementById("submission-text").style.display =
+    "none";
+
+
+  document.getElementById("commentary-popover").style.display =
+    "block";
+
+  document.getElementById("commentary-overlay").style.display =
+    "block";
+
+
+  document.body.style.overflow = "hidden";
+
+}
+
+
+/* =========================================
+   CLOSE COMMENTARY
+========================================= */
+
+function closeCommentary() {
+
+  document.getElementById("commentary-popover").style.display =
+    "none";
+
+  document.getElementById("commentary-overlay").style.display =
+    "none";
+
+  document.body.style.overflow = "";
+
+}
+
+
+/* =========================================
+   SUBMISSION TOGGLE
+========================================= */
+
+function toggleSubmission() {
+
+  const box =
+    document.getElementById("submission-text");
+
+  const button =
+    box.previousElementSibling;
+
+  if (box.style.display === "none") {
+
+    box.style.display = "block";
+
+    button.textContent =
+      "Hide Submission";
+
+  } else {
+
+    box.style.display = "none";
+
+    button.textContent =
+      "Show Submission";
+
+  }
+
+}
+
+
+/* =========================================
+   KEYBOARD ESCAPE
+========================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Escape") {
+
+      closeCommentary();
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   AUDIO RECORDING
+========================================= */
+
+let mediaRecorder = null;
+
+let audioChunks = [];
+
+let audioURL = null;
+
+
+/* START */
+
+async function startRecording() {
+
+  try {
+
+    const stream =
+      await navigator.mediaDevices.getUserMedia({
+        audio: true
+      });
+
+
+    audioChunks = [];
+
+
+    mediaRecorder =
+      new MediaRecorder(stream);
+
+
+    mediaRecorder.ondataavailable =
+      function(event) {
+
+        if (event.data.size > 0) {
+
+          audioChunks.push(event.data);
+
+        }
+
+      };
+
+
+    mediaRecorder.onstop =
+      function() {
+
+        const audioBlob =
+          new Blob(
+            audioChunks,
+            { type: "audio/webm" }
+          );
+
+
+        if (audioURL) {
+
+          URL.revokeObjectURL(audioURL);
+
+        }
+
+
+        audioURL =
+          URL.createObjectURL(audioBlob);
+
+
+        document.getElementById(
+          "audio-player"
+        ).src = audioURL;
+
+
+        document.getElementById(
+          "recording-status"
+        ).textContent =
+          "Recording ready for playback.";
+
+      };
+
+
+    mediaRecorder.start();
+
+
+    document.getElementById(
+      "recording-status"
+    ).textContent =
+      "Recording in progress...";
+
+
+  } catch (error) {
+
+    document.getElementById(
+      "recording-status"
+    ).textContent =
+      "Microphone access was not available.";
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* STOP */
+
+function stopRecording() {
+
+  if (
+    mediaRecorder &&
+    mediaRecorder.state !== "inactive"
+  ) {
+
+    mediaRecorder.stop();
+
+    mediaRecorder.stream
+      .getTracks()
+      .forEach(
+        track => track.stop()
+      );
+
+  }
+
+}
+
+
+/* CLEAR */
+
+function clearRecording() {
+
+  const player =
+    document.getElementById(
+      "audio-player"
+    );
+
+
+  player.removeAttribute("src");
+
+  player.load();
+
+
+  if (audioURL) {
+
+    URL.revokeObjectURL(audioURL);
+
+    audioURL = null;
+
+  }
+
+
+  audioChunks = [];
+
+
+  document.getElementById(
+    "recording-status"
+  ).textContent =
+    "Recording cleared.";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

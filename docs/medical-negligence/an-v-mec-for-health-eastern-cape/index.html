@@ -10,27 +10,262 @@
     content="width=device-width, initial-scale=1"
   >
 
-  <title>AN v MEC for Health, Eastern Cape</title>
+  <title>
+    AN v MEC for Health, Eastern Cape — Fluently Case Analysis
+  </title>
+
 
   <style>
 
-    .legal-highlight {
-      background-color: yellow;
-      cursor: pointer;
-      font-weight: bold;
-      padding: 2px 4px;
+    /* =========================
+       GENERAL PAGE
+       ========================= */
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+      color: #222;
+      background: #ffffff;
     }
 
-    .legal-highlight:hover {
+
+    header {
+      padding: 30px;
+      border-bottom: 1px solid #ddd;
+      background: #fafafa;
+    }
+
+
+    header h1 {
+      margin: 0 0 8px 0;
+      font-size: 30px;
+    }
+
+
+    header p {
+      margin: 4px 0;
+    }
+
+
+    nav {
+      padding: 15px 30px;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+
+    nav a {
+      margin-right: 18px;
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+    }
+
+
+    nav a:hover {
       text-decoration: underline;
     }
 
-    .commentary-box {
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+
+    section {
+      margin-bottom: 60px;
+    }
+
+
+    h2 {
+      font-family: Arial, sans-serif;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+
+    h3 {
+      font-family: Arial, sans-serif;
+    }
+
+
+    /* =========================
+       CASE OVERVIEW
+       ========================= */
+
+    .case-overview {
+      background: #f7f7f7;
+      padding: 20px;
+      border-left: 4px solid #444;
+    }
+
+
+    /* =========================
+       JUDGMENT READER
+       ========================= */
+
+    .judgment-container {
+      max-width: 850px;
+    }
+
+
+    .judgment-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+
+    .judgment-title h2 {
+      border: none;
+      margin-bottom: 5px;
+    }
+
+
+    .judgment-title p {
+      margin: 3px 0;
+    }
+
+
+    .judgment-paragraph {
+      margin-bottom: 22px;
+    }
+
+
+    .paragraph-number {
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+
+    .judgment-heading {
+      font-weight: bold;
+      text-align: center;
+      margin: 35px 0 25px 0;
+    }
+
+
+    /* =========================
+       PURPLE LEGAL PRINCIPLE
+       ========================= */
+
+    .legal-principle {
+      background: #eadcff;
+      border-bottom: 2px solid #8e44ad;
+      cursor: pointer;
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+
+
+    .legal-principle:hover {
+      background: #dcc5ff;
+    }
+
+
+    /* =========================
+       COMMENTARY PANEL
+       ========================= */
+
+    #commentary-panel {
+      display: none;
+      margin: 35px 0;
+      padding: 25px;
+      border: 2px solid #8e44ad;
+      border-radius: 6px;
+      background: #faf7ff;
+      font-family: Arial, sans-serif;
+    }
+
+
+    #commentary-panel h3 {
+      margin-top: 0;
+      color: #6c3483;
+    }
+
+
+    .commentary-label {
+      font-weight: bold;
+      color: #6c3483;
+      margin-top: 20px;
+    }
+
+
+    /* =========================
+       SUBMISSION
+       ========================= */
+
+    .submission-box {
+      margin-top: 25px;
+      padding: 20px;
+      background: #f5f5f5;
+      border-left: 4px solid #555;
+    }
+
+
+    .submission-text {
+      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      background: white;
+      border: 1px solid #ccc;
+    }
+
+
+    button {
+      padding: 10px 16px;
+      margin: 5px;
+      border: 1px solid #777;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+
+    button:hover {
+      background: #eee;
+    }
+
+
+    /* =========================
+       RECORDING
+       ========================= */
+
+    .recording-box {
       margin-top: 20px;
       padding: 20px;
-      border: 1px solid #999;
-      background-color: #f5f5f5;
+      border: 1px solid #ccc;
+      background: #fff;
     }
+
+
+    .recording-status {
+      margin-top: 10px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+
+    /* =========================
+       MINORITY JUDGMENT
+       ========================= */
+
+    .separate-judgment {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 3px solid #333;
+    }
+
 
   </style>
 
@@ -40,80 +275,76 @@
 <body>
 
 
+<header>
+
   <h1>
     AN v MEC for Health, Eastern Cape
   </h1>
-
 
   <p>
     (585/2018) [2019] ZASCA 102
   </p>
 
-
   <p>
-    Medical Negligence
+    [2019] 4 All SA 1 (SCA)
   </p>
 
+  <p>
+    15 August 2019
+  </p>
 
-  <hr>
-
-
-  <nav>
-
-    <a href="#overview">
-      Overview
-    </a>
-
-    |
-
-    <a href="#judgment">
-      Judgment
-    </a>
-
-    |
-
-    <a href="#principles">
-      Legal Principles
-    </a>
-
-    |
-
-    <a href="#commentary">
-      Interactive Commentary
-    </a>
-
-    |
-
-    <a href="#submissions">
-      Submissions
-    </a>
-
-    |
-
-    <a href="#advocacy">
-      Advocacy Practice
-    </a>
-
-  </nav>
+</header>
 
 
-  <hr>
+<nav>
+
+  <a href="#overview">
+    Overview
+  </a>
+
+  <a href="#judgment">
+    Judgment
+  </a>
+
+  <a href="#principles">
+    Legal Principles
+  </a>
+
+  <a href="#commentary">
+    Commentary
+  </a>
+
+  <a href="#submissions">
+    Submissions
+  </a>
+
+  <a href="#advocacy">
+    Advocacy Practice
+  </a>
+
+</nav>
 
 
-  <!-- OVERVIEW -->
+<main>
 
-  <section id="overview">
 
-    <h2>
-      Overview
-    </h2>
+<!-- =========================
+     OVERVIEW
+     ========================= -->
 
+<section id="overview">
+
+  <h2>
+    Overview
+  </h2>
+
+
+  <div class="case-overview">
 
     <p>
       <strong>Case:</strong>
       AN v MEC for Health, Eastern Cape
     </p>
-
 
     <p>
       <strong>Citation:</strong>
@@ -121,18 +352,15 @@
       [2019] 4 All SA 1 (SCA)
     </p>
 
-
     <p>
       <strong>Court:</strong>
       Supreme Court of Appeal
     </p>
 
-
     <p>
       <strong>Date:</strong>
       15 August 2019
     </p>
-
 
     <p>
       <strong>Practice Area:</strong>
@@ -140,10 +368,9 @@
     </p>
 
 
-    <h3>
-      Key Legal Areas
-    </h3>
-
+    <p>
+      <strong>Key Legal Areas:</strong>
+    </p>
 
     <ul>
 
@@ -173,263 +400,685 @@
 
     </ul>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <hr>
+<!-- =========================
+     JUDGMENT
+     ========================= -->
+
+<section id="judgment">
 
 
-  <!-- JUDGMENT -->
-
-  <section id="judgment">
-
-    <h2>
-      Judgment
-    </h2>
+  <div class="judgment-container">
 
 
-    <p>
-      <strong>
+    <div class="judgment-title">
+
+      <h2>
+        JUDGMENT
+      </h2>
+
+      <p>
         AN v MEC for Health, Eastern Cape
-      </strong>
-    </p>
-
-
-    <p>
-      (585/2018) [2019] ZASCA 102;
-      [2019] 4 All SA 1 (SCA)
-    </p>
-
-
-    <h3>
-      Judgment Text
-    </h3>
-
-
-    <p>
-      <strong>
-        Paragraph 3
-      </strong>
-    </p>
-
-
-    <p>
-
-      <span
-        class="legal-highlight"
-        onclick="showCommentary()"
-      >
-        Wrongfulness involves the breach of a legal duty.
-      </span>
-
-    </p>
-
-
-    <!-- COMMENTARY THAT OPENS WHEN THE PASSAGE IS CLICKED -->
-
-    <div
-      id="commentary-box"
-      class="commentary-box"
-      hidden
-    >
-
-      <h3>
-        Interactive Commentary
-      </h3>
-
-
-      <h4>
-        Principle
-      </h4>
-
-      <p>
-        This passage concerns the concept of
-        wrongfulness and the existence of a legal duty.
       </p>
 
-
-      <h4>
-        Related Cases
-      </h4>
-
       <p>
-        Related authorities will be added here.
-      </p>
-
-
-      <h4>
-        Application
-      </h4>
-
-      <p>
-        The application of the principle to the facts
-        of the case will be developed here.
-      </p>
-
-
-      <h4>
-        Possible Submission
-      </h4>
-
-      <p>
-        A possible legal submission will be developed here.
-      </p>
-
-
-      <h4>
-        Opposing Submission
-      </h4>
-
-      <p>
-        The opposing argument will be developed here.
-      </p>
-
-
-      <h4>
-        Practice This Argument
-      </h4>
-
-      <p>
-        Advocacy practice will be connected here.
+        Supreme Court of Appeal
       </p>
 
     </div>
 
 
-    <p>
-      Each paragraph will eventually be capable of
-      being selected for detailed legal commentary.
+    <!--
+      THE JUDGMENT WILL BE INSERTED
+      PARAGRAPH BY PARAGRAPH HERE.
+
+      The important design principle is that
+      the judgment itself remains readable.
+
+      Only selected legal passages receive:
+
+      class="legal-principle"
+
+      Those passages become clickable.
+    -->
+
+
+    <p class="judgment-paragraph">
+
+      <span class="paragraph-number">
+        [1]
+      </span>
+
+      Judgment text will be inserted here.
+
     </p>
 
 
+    <p class="judgment-paragraph">
+
+      <span class="paragraph-number">
+        [2]
+      </span>
+
+      Judgment text will be inserted here.
+
+    </p>
+
+
+    <p class="judgment-paragraph">
+
+      <span class="paragraph-number">
+        [3]
+      </span>
+
+      Judgment text will be inserted here.
+
+      <span
+        class="legal-principle"
+        onclick="openCommentary('wrongfulness')"
+      >
+        Interactive legal principle will appear here.
+      </span>
+
+      Judgment text will continue here.
+
+    </p>
+
+
+    <p class="judgment-paragraph">
+
+      <span class="paragraph-number">
+        [4]
+      </span>
+
+      Judgment text will be inserted here.
+
+    </p>
+
+
+    <p class="judgment-paragraph">
+
+      <span class="paragraph-number">
+        [5]
+      </span>
+
+      Judgment text will be inserted here.
+
+    </p>
+
+
+    <p class="judgment-paragraph">
+
+      <span class="paragraph-number">
+        [6]
+      </span>
+
+      Judgment text will be inserted here.
+
+    </p>
+
+
+    <!--
+      MORE PARAGRAPHS WILL BE ADDED HERE
+      USING THE SAME STRUCTURE.
+    -->
+
+
+    <!-- =========================
+         MINORITY JUDGMENT
+         ========================= -->
+
+    <div class="separate-judgment">
+
+      <h3>
+        Separate Judgment
+      </h3>
+
+      <p>
+        The separate judgment will be presented
+        separately from the majority judgment.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     COMMENTARY PANEL
+     ========================= -->
+
+<div id="commentary-panel">
+
+  <h3>
+    Interactive Legal Commentary
+  </h3>
+
+
+  <div
+    id="commentary-content"
+  >
+
+  </div>
+
+
+  <div class="submission-box">
+
     <h3>
-      Interactive Reading
+      Legal Submission
     </h3>
 
 
+    <button
+      onclick="toggleSubmission()"
+    >
+      View Example Submission
+    </button>
+
+
+    <div
+      id="submission-text"
+      class="submission-text"
+    >
+
+      <p>
+        Example submission will be developed here.
+      </p>
+
+    </div>
+
+
+    <div class="recording-box">
+
+      <h3>
+        Advocacy Practice
+      </h3>
+
+
+      <p>
+        Practise delivering the submission aloud.
+      </p>
+
+
+      <button
+        id="record-button"
+        onclick="startRecording()"
+      >
+        🎙 Record
+      </button>
+
+
+      <button
+        id="stop-button"
+        onclick="stopRecording()"
+        disabled
+      >
+        ⏹ Stop
+      </button>
+
+
+      <button
+        id="clear-button"
+        onclick="clearRecording()"
+        disabled
+      >
+        🧹 Clear
+      </button>
+
+
+      <div
+        id="recording-status"
+        class="recording-status"
+      >
+        Status: idle
+      </div>
+
+
+      <audio
+        id="recording-player"
+        controls
+        hidden
+      ></audio>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     LEGAL PRINCIPLES
+     ========================= -->
+
+<section id="principles">
+
+  <h2>
+    Legal Principles
+  </h2>
+
+
+  <p>
+    The legal principles identified in the judgment
+    will be collected here.
+  </p>
+
+
+  <ul>
+
+    <li>
+      Wrongfulness
+    </li>
+
+    <li>
+      Legal duty
+    </li>
+
+    <li>
+      Negligence
+    </li>
+
+    <li>
+      Causation
+    </li>
+
+  </ul>
+
+</section>
+
+
+<!-- =========================
+     COMMENTARY
+     ========================= -->
+
+<section id="commentary">
+
+  <h2>
+    Commentary
+  </h2>
+
+
+  <p>
+    Click a purple legal passage within the judgment
+    to open its commentary.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     SUBMISSIONS
+     ========================= -->
+
+<section id="submissions">
+
+  <h2>
+    Submissions
+  </h2>
+
+
+  <p>
+    Legal submissions will be organised by issue
+    and linked directly to the relevant passages
+    in the judgment.
+  </p>
+
+</section>
+
+
+<!-- =========================
+     ADVOCACY PRACTICE
+     ========================= -->
+
+<section id="advocacy">
+
+  <h2>
+    Advocacy Practice
+  </h2>
+
+
+  <p>
+    Advocacy exercises will be linked to individual
+    legal principles and submissions.
+  </p>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+
+/* =========================
+   COMMENTARY DATA
+   ========================= */
+
+const commentaryData = {
+
+  wrongfulness: {
+
+    title:
+      "Wrongfulness — Legal Duty",
+
+    principle:
+      "This passage concerns wrongfulness and the existence of a legal duty.",
+
+    related:
+      "Related authorities will be added here.",
+
+    application:
+      "The application of the principle to AN v MEC for Health will be developed here.",
+
+    submission:
+      "The claimant/patient may submit that the facts establish the existence and breach of a legal duty owed in the circumstances.",
+
+    opposition:
+      "The opposing party may challenge the existence, scope or breach of the alleged legal duty."
+
+  }
+
+};
+
+
+/* =========================
+   OPEN COMMENTARY
+   ========================= */
+
+function openCommentary(key) {
+
+  const data = commentaryData[key];
+
+  if (!data) {
+    return;
+  }
+
+
+  const panel =
+    document.getElementById("commentary-panel");
+
+
+  const content =
+    document.getElementById("commentary-content");
+
+
+  content.innerHTML = `
+
+    <h4>
+      Legal Principle
+    </h4>
+
     <p>
-      Select a highlighted passage to view:
+      ${data.principle}
     </p>
 
 
-    <ul>
-
-      <li>
-        The legal principle involved
-      </li>
-
-      <li>
-        Related authorities
-      </li>
-
-      <li>
-        Application of the principle
-      </li>
-
-      <li>
-        Possible legal submissions
-      </li>
-
-      <li>
-        The opposing argument
-      </li>
-
-    </ul>
-
-  </section>
-
-
-  <hr>
-
-
-  <!-- LEGAL PRINCIPLES -->
-
-  <section id="principles">
-
-    <h2>
-      Legal Principles
-    </h2>
+    <h4>
+      Related Cases
+    </h4>
 
     <p>
-      Legal principles will be developed here.
+      ${data.related}
     </p>
 
-  </section>
 
-
-  <hr>
-
-
-  <!-- INTERACTIVE COMMENTARY -->
-
-  <section id="commentary">
-
-    <h2>
-      Interactive Commentary
-    </h2>
+    <h4>
+      Application
+    </h4>
 
     <p>
-      Interactive commentary will be developed here.
+      ${data.application}
     </p>
 
-  </section>
 
-
-  <hr>
-
-
-  <!-- SUBMISSIONS -->
-
-  <section id="submissions">
-
-    <h2>
-      Submissions
-    </h2>
+    <h4>
+      Possible Submission
+    </h4>
 
     <p>
-      Legal submissions will be developed here.
+      ${data.submission}
     </p>
 
-  </section>
 
-
-  <hr>
-
-
-  <!-- ADVOCACY PRACTICE -->
-
-  <section id="advocacy">
-
-    <h2>
-      Advocacy Practice
-    </h2>
+    <h4>
+      Opposing Submission
+    </h4>
 
     <p>
-      Advocacy practice will be developed here.
+      ${data.opposition}
     </p>
 
-  </section>
+  `;
 
 
-  <!-- JAVASCRIPT -->
+  panel.style.display = "block";
 
-  <script>
 
-    function showCommentary() {
+  panel.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
 
-      const commentary =
-        document.getElementById("commentary-box");
+}
 
-      commentary.hidden = false;
 
-      commentary.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
+/* =========================
+   SUBMISSION
+   ========================= */
+
+function toggleSubmission() {
+
+  const submission =
+    document.getElementById("submission-text");
+
+
+  if (
+    submission.style.display === "block"
+  ) {
+
+    submission.style.display = "none";
+
+  } else {
+
+    submission.style.display = "block";
+
+  }
+
+}
+
+
+/* =========================
+   VOICE RECORDER
+   ========================= */
+
+let mediaRecorder = null;
+
+let audioChunks = [];
+
+let audioURL = null;
+
+
+/* START RECORDING */
+
+async function startRecording() {
+
+  try {
+
+    const stream =
+      await navigator.mediaDevices.getUserMedia({
+        audio: true
       });
 
-    }
 
-  </script>
+    mediaRecorder =
+      new MediaRecorder(stream);
+
+
+    audioChunks = [];
+
+
+    mediaRecorder.ondataavailable =
+      function(event) {
+
+        if (event.data.size > 0) {
+
+          audioChunks.push(event.data);
+
+        }
+
+      };
+
+
+    mediaRecorder.onstop =
+      function() {
+
+        const audioBlob =
+          new Blob(
+            audioChunks,
+            {
+              type: "audio/webm"
+            }
+          );
+
+
+        audioURL =
+          URL.createObjectURL(audioBlob);
+
+
+        const player =
+          document.getElementById(
+            "recording-player"
+          );
+
+
+        player.src = audioURL;
+
+        player.hidden = false;
+
+
+        document.getElementById(
+          "clear-button"
+        ).disabled = false;
+
+
+        document.getElementById(
+          "recording-status"
+        ).textContent =
+          "Status: recording ready";
+
+      };
+
+
+    mediaRecorder.start();
+
+
+    document.getElementById(
+      "record-button"
+    ).disabled = true;
+
+
+    document.getElementById(
+      "stop-button"
+    ).disabled = false;
+
+
+    document.getElementById(
+      "recording-status"
+    ).textContent =
+      "Status: recording...";
+
+
+  } catch (error) {
+
+    document.getElementById(
+      "recording-status"
+    ).textContent =
+      "Microphone permission is required.";
+
+  }
+
+}
+
+
+/* STOP RECORDING */
+
+function stopRecording() {
+
+  if (
+    mediaRecorder &&
+    mediaRecorder.state !== "inactive"
+  ) {
+
+    mediaRecorder.stop();
+
+
+    document.getElementById(
+      "record-button"
+    ).disabled = false;
+
+
+    document.getElementById(
+      "stop-button"
+    ).disabled = true;
+
+  }
+
+}
+
+
+/* CLEAR RECORDING */
+
+function clearRecording() {
+
+  const player =
+    document.getElementById(
+      "recording-player"
+    );
+
+
+  player.pause();
+
+  player.removeAttribute("src");
+
+  player.load();
+
+  player.hidden = true;
+
+
+  if (audioURL) {
+
+    URL.revokeObjectURL(audioURL);
+
+    audioURL = null;
+
+  }
+
+
+  audioChunks = [];
+
+
+  document.getElementById(
+    "clear-button"
+  ).disabled = true;
+
+
+  document.getElementById(
+    "recording-status"
+  ).textContent =
+    "Status: idle";
+
+}
+
+
+</script>
 
 
 </body>

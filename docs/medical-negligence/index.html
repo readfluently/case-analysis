@@ -1,16 +1,87 @@
 <!doctype html>
+
 <html lang="en">
 
 <head>
 
   <meta charset="utf-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1"
+
+>
 
   <title>Medical Negligence — Fluently Case Analysis</title>
+
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 35px;
+    }
+
+    .case-shelf {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      margin-top: 25px;
+    }
+
+    .case-book {
+      width: 190px;
+      min-height: 170px;
+      padding: 18px 16px;
+      border-radius: 6px;
+      background: #ffffff;
+      border: 1px solid #d8d8d8;
+      box-shadow: 3px 5px 12px rgba(0, 0, 0, 0.10);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .case-book:hover {
+      transform: translateY(-4px);
+      box-shadow: 5px 9px 18px rgba(0, 0, 0, 0.16);
+    }
+
+    .case-book-title {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .case-book-citation {
+      margin-top: 14px;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      color: #666;
+    }
+
+    .case-book-area {
+      margin-top: 10px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #777;
+    }
+
+  </style>
 
 </head>
 
@@ -25,19 +96,61 @@
 
   <h2>Cases</h2>
 
-  <p>
-  <div class="case-card">
-    <a href="an-v-mec-for-health-eastern-cape/index.html">
-        AN v MEC for Health, Eastern Cape
-    </a>
-</div>
+  <div class="case-shelf">
 
-<div class="case-card">
-    <a href="sn-obo-on-v-mec-for-health-eastern-cape/index.html">
-        SN obo ON v MEC for Health: Eastern Cape
-    </a>
-</div>
-  </p>
+```
+<a
+  class="case-book"
+  href="an-v-mec-for-health-eastern-cape/index.html"
+>
+
+  <div class="case-book-title">
+    AN v MEC for Health,<br>
+    Eastern Cape
+  </div>
+
+  <div>
+
+    <div class="case-book-citation">
+      585/2018<br>
+      [2019] ZASCA 102
+    </div>
+
+    <div class="case-book-area">
+      Medical Negligence
+    </div>
+
+  </div>
+
+</a>
+
+
+<a
+  class="case-book"
+  href="sn-obo-on-v-mec-for-health-eastern-cape/index.html"
+>
+
+  <div class="case-book-title">
+    SN obo ON v MEC for Health: Eastern Cape
+  </div>
+
+  <div>
+
+    <div class="case-book-citation">
+      277/2023<br>
+      [2025] ZASCA 36
+    </div>
+
+    <div class="case-book-area">
+      Medical Negligence
+    </div>
+
+  </div>
+
+</a>
+```
+
+  </div>
 
 </body>
 

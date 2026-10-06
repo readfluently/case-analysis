@@ -1,0 +1,1254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MEC for Health, Western Cape v Q | Fluently Case Analysis</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, #f5f0ff 0%, transparent 35%),
+    linear-gradient(135deg, #f8f9fc, #eef1f7);
+  color: #20232a;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.65;
+}
+
+header {
+  background: #171321;
+  color: white;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+}
+
+header h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  letter-spacing: 2px;
+  font-size: 30px;
+}
+
+header p {
+  margin: 6px 0 0;
+  color: #d8c9f5;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.container {
+  width: min(1100px, 94%);
+  margin: 35px auto 70px;
+}
+
+.case-header {
+  background: white;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 8px 28px rgba(35, 28, 55, 0.10);
+  margin-bottom: 25px;
+}
+
+.case-header h2 {
+  margin-top: 0;
+  font-family: Georgia, serif;
+  color: #302044;
+  font-size: 28px;
+}
+
+.citation {
+  color: #6941a5;
+  font-weight: bold;
+}
+
+.case-description {
+  color: #555;
+  margin-top: 15px;
+}
+
+.instructions {
+  background: #f4effd;
+  border-left: 5px solid #7445a8;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-top: 22px;
+}
+
+.judgment {
+  background: white;
+  padding: 32px;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(35, 28, 55, 0.09);
+}
+
+.judgment h3 {
+  font-family: Georgia, serif;
+  color: #302044;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.paragraph {
+  margin: 0 0 18px;
+}
+
+.paragraph-number {
+  font-weight: bold;
+  color: #5c3b88;
+  margin-right: 5px;
+}
+
+.legal-principle {
+  color: #6d3fa1;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 2px;
+}
+
+.legal-principle:hover {
+  color: #422265;
+}
+
+.order {
+  background: #f7f7fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.order h4 {
+  margin-top: 0;
+  color: #302044;
+}
+
+/* Commentary panel */
+
+.commentary {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(720px, 92%);
+  max-height: 85vh;
+  overflow-y: auto;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+  padding: 28px;
+}
+
+.commentary.active {
+  display: block;
+}
+
+.commentary h3 {
+  margin-top: 0;
+  font-family: Georgia, serif;
+  color: #4b286d;
+}
+
+.commentary-section {
+  margin-top: 20px;
+}
+
+.commentary-section h4 {
+  margin-bottom: 7px;
+  color: #68409b;
+}
+
+.close-btn {
+  float: right;
+  border: none;
+  background: #eee;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.close-btn:hover {
+  background: #ddd;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(20,15,30,0.55);
+}
+
+.overlay.active {
+  display: block;
+}
+
+/* Interactive boxes */
+
+.interactive {
+  margin-top: 25px;
+  padding: 22px;
+  background: #faf9fd;
+  border: 1px solid #e4dcef;
+  border-radius: 14px;
+}
+
+.interactive h4 {
+  color: #4b286d;
+  margin-top: 0;
+}
+
+.question,
+.submission,
+.opposition {
+  margin-top: 15px;
+  padding: 16px;
+  border-radius: 10px;
+}
+
+.question {
+  background: #f0ecf8;
+}
+
+.submission {
+  background: #edf7ef;
+  border-left: 4px solid #4b8b5a;
+}
+
+.opposition {
+  background: #fff3ed;
+  border-left: 4px solid #b76b3d;
+}
+
+/* Recorder */
+
+.recorder {
+  margin-top: 35px;
+  background: #171321;
+  color: white;
+  padding: 28px;
+  border-radius: 18px;
+}
+
+.recorder h3 {
+  font-family: Georgia, serif;
+  margin-top: 0;
+}
+
+.recorder p {
+  color: #d7d2df;
+}
+
+.recorder button {
+  border: none;
+  padding: 11px 18px;
+  margin: 5px 5px 5px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.record-btn {
+  background: #c94d5b;
+  color: white;
+}
+
+.stop-btn {
+  background: #ddd;
+  color: #222;
+}
+
+.play-btn {
+  background: #7a55a3;
+  color: white;
+}
+
+.clear-btn {
+  background: #444;
+  color: white;
+}
+
+.recording-status {
+  margin-top: 12px;
+  color: #d9c7f2;
+  font-size: 14px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 18px;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .case-header,
+  .judgment {
+    padding: 22px;
+  }
+
+  .case-header h2 {
+    font-size: 23px;
+  }
+
+  .judgment {
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>FLUENTLY</h1>
+  <p>CASE ANALYSIS • LEGAL RESEARCH • ADVOCACY</p>
+</header>
+
+<div class="container">
+
+  <section class="case-header">
+
+    <h2>
+      MEC for Health, Western Cape v Q
+    </h2>
+
+    <div class="citation">
+      (928/2017) [2018] ZASCA 132
+      <br>
+      28 September 2018
+    </div>
+
+    <p class="case-description">
+      Supreme Court of Appeal — Medical Negligence,
+      Expert Evidence, Causation and the Onus of Proof.
+    </p>
+
+    <div class="instructions">
+      <strong>How to use this case:</strong>
+      Read the judgment continuously. Selected legal principles
+      appear in purple. Click a purple principle to examine its
+      meaning, application to the facts, possible submission,
+      opposing submission and advocacy question.
+    </div>
+
+  </section>
+
+
+  <section class="judgment">
+
+    <h3>Judgment</h3>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[1]</span>
+      This is an appeal against a judgment of the Western Cape Division
+      of the High Court, Cape Town. The High Court found the appellant,
+      the Member of the Executive Council for Health, Western Cape,
+      liable for damages suffered by the respondent's minor daughter,
+      I.Q., as a result of cerebral palsy. The appeal concerns the
+      correctness of that finding.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[2]</span>
+      I.Q. was born at Paarl Hospital on 7 December 2011. She suffers
+      from spastic quadriplegic cerebral palsy. Her mother instituted
+      action against the appellant in 2013. The High Court found that
+      the medical staff had been negligent and awarded damages on the
+      basis that the appellant was liable for 100 per cent of the
+      respondent's proven damages.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[3]</span>
+      The appellant appeals against that judgment. The central question
+      is whether the respondent discharged the onus of proving that the
+      cerebral palsy was caused by negligence on the part of the
+      medical staff.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[4]</span>
+      The respondent's antenatal history included a persistent urinary
+      tract infection. Various antenatal investigations were conducted
+      during the pregnancy.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[5]</span>
+      On 30 November 2011 a non-stress test was conducted. The evidence
+      showed that the test was incorrectly assessed as reactive.
+      According to the respondent's expert evidence, the patient should
+      not have been sent home.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[6]</span>
+      On 7 December 2011 the respondent returned to hospital. A further
+      non-stress test was non-reactive and demonstrated poor baseline
+      variability. Labour was induced.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[7]</span>
+      I.Q. was born at approximately 23h15. She was microcephalic and
+      had a cephalohaematoma. There was evidence of intracerebral
+      bleeding. Her cord blood pH was 7.22 and her Apgar scores were
+      4, 7 and 9.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[8]</span>
+      The child subsequently developed hypoxic ischaemic encephalopathy,
+      seizures and hydrocephalus. Radiological investigations were
+      conducted after birth.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[9]</span>
+      The respondent pleaded various grounds of negligence, including
+      failures to investigate danger signs, failure to intervene
+      timeously by Caesarean section and failure properly to monitor
+      the labour and fetal heart rate.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[10]</span>
+      An alternative allegation concerned the failure to cool the baby
+      after birth because of an alleged lack of available beds.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[11]</span>
+      The issues before the High Court included the damage-causing
+      occurrence, the timing of that occurrence, whether the medical
+      staff had been negligent and whether the negligence was causally
+      linked to the child's cerebral palsy.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[12]</span>
+      The respondent called Professor Andronikou, a radiologist,
+      Dr Mtsi, an obstetrician and gynaecologist, and Dr Reid,
+      a clinical neurologist as expert witnesses.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[13]</span>
+      The appellant called Professor van Toorn, a paediatric
+      neurologist, and Professor Odendaal, a gynaecologist and
+      obstetrician.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[14]</span>
+      The experts prepared a joint minute. There was agreement that
+      the respondent should not have been sent home after the
+      non-reactive NST on 30 November and that a Caesarean section
+      should have been performed. There was also agreement that
+      continuous CTG monitoring should have been conducted during
+      delivery. The quality of the recordal was poor.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[15]</span>
+      The experts disagreed about the due date, an alleged NST on
+      23 November, and whether intervention on 7 December would have
+      prevented the child's injuries.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[16]</span>
+      The respondent testified and relied principally upon the evidence
+      of Dr Mtsi and Dr Reid.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[17]</span>
+      Dr Mtsi considered that the urinary tract infection required
+      further investigation and hospital admission.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[18]</span>
+      Professor Odendaal considered that a connection between the
+      urinary tract infection and cerebral palsy was improbable.
+      She relied upon medical literature which did not establish such
+      a link.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[19]</span>
+      The evidence regarding the 30 November NST was also disputed.
+      Dr Mtsi considered that a Caesarean section could have saved
+      the baby. Professor Odendaal considered that the damage had
+      probably already occurred by then.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[20]</span>
+      On 7 December both obstetric experts agreed that a Caesarean
+      section should have occurred.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[21]</span>
+      Professor van Toorn explained that microcephaly develops over
+      a period of weeks. He considered the CTG evidence, the clinical
+      findings and the criteria for hypoxic ischaemic encephalopathy.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[22]</span>
+      Professor van Toorn did not identify a sentinel event which
+      explained the child's condition. The Apgar scores also improved
+      after birth.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[23]</span>
+      The High Court found that the medical staff had breached their
+      duty of care. It did not, however, make a clear finding as to
+      precisely when the damage had occurred.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[24]</span>
+      The High Court did not expressly explain why it preferred the
+      evidence of Dr Mtsi over that of the appellant's experts.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[25]</span>
+      The High Court appeared to infer that the child had suffered
+      a birth injury because Professor van Toorn could not state with
+      absolute certainty that the injury had occurred before labour,
+      and because contemporaneous records referred to birth asphyxia.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[26]</span>
+      The appellant submitted that there was no adequate causal link
+      between any negligent conduct and the cerebral palsy.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[27]</span>
+      The respondent relied upon the evidence suggesting that the
+      failure to intervene caused or contributed to the child's injury.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[28]</span>
+
+      <span class="legal-principle"
+        onclick="showCommentary('onus')">
+        The person who asserts that a damage-causing event occurred
+        bears the onus of proving that event.
+      </span>
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[29]</span>
+      The duty of medical staff is not to exercise the highest possible
+      degree of skill but to exercise the general level of skill and
+      diligence possessed and exercised by the ordinary skilled
+      practitioner in the relevant profession.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[30]</span>
+      The respondent therefore had to establish, by credible and
+      persuasive evidence, that the doctors and nurses failed to
+      meet the applicable standard of care.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[31]</span>
+
+      <span class="legal-principle"
+        onclick="showCommentary('expertLogic')">
+        Expert evidence must have a logical basis and must be supported
+        by proper reasons.
+      </span>
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[32]</span>
+      The probative value of an expert opinion depends significantly
+      upon the reasons furnished for the opinion. An expert must
+      demonstrate a proper basis for the conclusions reached.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[33]</span>
+
+      <span class="legal-principle"
+        onclick="showCommentary('unsupported')">
+        An expert conclusion cannot carry sufficient weight where
+        the factual or scientific foundation for that conclusion
+        is inadequate.
+      </span>
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[34]</span>
+      Dr Mtsi's evidence contained weaknesses. She did not identify
+      a specific risk arising from the urinary tract infection and
+      there was no study establishing a connection between the
+      infection and cerebral palsy.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[35]</span>
+      There were also factual difficulties in Dr Mtsi's interpretation
+      of the records, including difficulties arising from her
+      interpretation of Afrikaans entries.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[36]</span>
+      Her evidence did not establish a sufficient basis for an early
+      Caesarean section on the facts relied upon.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[37]</span>
+      The references in the records to birth asphyxia did not
+      necessarily establish when the injury had occurred.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[38]</span>
+      Dr Mtsi accepted that the expression “birth asphyxia” was
+      non-descriptive. Professor van Toorn's opinion was based upon
+      the CTG evidence and information available after the birth.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[39]</span>
+      Dr Reid preferred an intrapartum explanation, but his field was
+      adult neurology. The allegation concerning a ventouse delivery
+      was also conjectural and inconsistent with the documentary record.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[40]</span>
+
+      <span class="legal-principle"
+        onclick="showCommentary('reasoned')">
+        Expert evidence founded on established facts and supported by
+        logical reasoning is more persuasive than an opinion resting
+        on speculation.
+      </span>
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[41]</span>
+      Professor Odendaal and Professor van Toorn's opinions were
+      founded on clearly established facts and were logical and
+      well reasoned.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[42]</span>
+      The Court was required to assess the expert opinions according
+      to their logical foundation, the facts upon which they rested
+      and the reasons advanced for the conclusions.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[43]</span>
+      Although a reasonable practitioner would not have sent the
+      patient home on 30 November, the evidence indicated that the
+      damage had probably already occurred by that time.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[44]</span>
+
+      <span class="legal-principle"
+        onclick="showCommentary('causation')">
+        Proof of negligent conduct does not by itself establish that
+        the negligent conduct caused the plaintiff's damage.
+      </span>
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[45]</span>
+      The evidence did not establish a causal link between the failure
+      to intervene and the damage. The same applied to the alleged
+      negligence after 30 November.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[46]</span>
+      The cause and timing of the child's injury remained unidentified.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[47]</span>
+
+      <span class="legal-principle"
+        onclick="showCommentary('reverse')">
+        It is impermissible to reason backwards from the existence
+        of harm to the conclusion that the defendant caused that harm
+        negligently.
+      </span>
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[48]</span>
+
+      <span class="legal-principle"
+        onclick="showCommentary('harm')">
+        Harm alone is not proof that medical staff caused the harm,
+        caused it negligently, or that the harm resulted from a
+        particular negligent act or omission.
+      </span>
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[49]</span>
+      The fact that the child suffered severe neurological injury
+      could not, without more, establish the causal connection
+      required in delict.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[50]</span>
+      The approach of reasoning backwards from effect to cause was
+      impermissible. The Court referred to the principle stated in
+      Goliath v MEC for Health, Eastern Cape, that it is not permissible
+      to reason backwards from the consequence to the cause.
+    </p>
+
+
+    <p class="paragraph">
+      <span class="paragraph-number">[51]</span>
+
+      <span class="legal-principle"
+        onclick="showCommentary('final')">
+        Where the plaintiff fails to establish the damage-causing
+        event and the causal link on a balance of probabilities,
+        the claim cannot succeed merely because negligence occurred.
+      </span>
+    </p>
+
+
+    <div class="order">
+
+      <h4>Order</h4>
+
+      <p>
+        1. The appeal is upheld with costs, including the costs of
+        two counsel.
+      </p>
+
+      <p>
+        2. The order of the High Court is set aside and replaced with:
+      </p>
+
+      <p>
+        “The plaintiff's claim is dismissed with costs, including
+        the costs of two counsel.”
+      </p>
+
+    </div>
+
+
+    <div class="interactive">
+
+      <h4>Advocacy Practice</h4>
+
+      <p>
+        The central advocacy question in this case is not simply
+        whether the medical staff acted negligently. It is whether
+        the evidence establishes that the negligent conduct caused
+        the child's damage.
+      </p>
+
+      <div class="question">
+        <strong>Question:</strong>
+        If negligence is admitted or established, what additional
+        evidence must the plaintiff produce to succeed?
+      </div>
+
+      <div class="submission">
+        <strong>Possible submission for the plaintiff:</strong>
+        The failure to investigate the abnormal NST, the failure to
+        intervene timeously and the failure properly to monitor the
+        fetal heart rate constituted breaches of the required standard
+        of care. The clinical and expert evidence, considered
+        cumulatively, supports the inference that these failures
+        contributed materially to the child's neurological injury.
+      </div>
+
+      <div class="opposition">
+        <strong>Possible submission for the MEC:</strong>
+        Even if the medical staff were negligent, negligence alone
+        does not establish causation. The plaintiff must prove when
+        the injury occurred and that the negligent conduct probably
+        caused or materially contributed to it. The expert evidence
+        supporting that proposition was speculative and insufficiently
+        reasoned, whereas the appellant's experts provided logical
+        explanations founded on established facts.
+      </div>
+
+    </div>
+
+
+    <div class="recorder">
+
+      <h3>Advocacy Recorder</h3>
+
+      <p>
+        Record your submission as though you are addressing the
+        court. Listen back and assess whether your argument separates
+        <strong>negligence</strong> from <strong>causation</strong>
+        and deals directly with the expert evidence.
+      </p>
+
+      <button class="record-btn" onclick="startRecording()">
+        Record
+      </button>
+
+      <button class="stop-btn" onclick="stopRecording()">
+        Stop
+      </button>
+
+      <button class="play-btn" onclick="playRecording()">
+        Play
+      </button>
+
+      <button class="clear-btn" onclick="clearRecording()">
+        Clear
+      </button>
+
+      <div class="recording-status" id="recordingStatus">
+        Ready to record.
+      </div>
+
+      <audio id="audioPlayback" controls></audio>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<div class="overlay" id="overlay" onclick="closeCommentary()"></div>
+
+<div class="commentary" id="commentary">
+
+  <button class="close-btn" onclick="closeCommentary()">
+    ×
+  </button>
+
+  <h3 id="commentaryTitle"></h3>
+
+  <div class="commentary-section">
+    <h4>Meaning</h4>
+    <p id="commentaryMeaning"></p>
+  </div>
+
+  <div class="commentary-section">
+    <h4>Application to Q</h4>
+    <p id="commentaryApplication"></p>
+  </div>
+
+  <div class="commentary-section">
+    <h4>Question</h4>
+    <p id="commentaryQuestion"></p>
+  </div>
+
+  <div class="commentary-section">
+    <h4>Possible Submission</h4>
+    <p id="commentarySubmission"></p>
+  </div>
+
+  <div class="commentary-section">
+    <h4>Opposing Submission</h4>
+    <p id="commentaryOpposition"></p>
+  </div>
+
+</div>
+
+
+<script>
+
+const commentaryData = {
+
+  onus: {
+    title: "Onus to Prove the Damage-Causing Event",
+
+    meaning:
+      "The party who asserts that a particular event caused the damage must prove that event. In a medical negligence claim, establishing that treatment fell below the required standard is not necessarily enough. The plaintiff must also establish the relevant damage-causing occurrence.",
+
+    application:
+      "In Q, the respondent had to establish not only that the medical staff acted negligently, but also that the relevant negligent omission or failure was connected to the cerebral palsy. The SCA found that the timing and cause of the injury remained uncertain.",
+
+    question:
+      "What evidence identifies the actual damage-causing event?",
+
+    submission:
+      "The respondent can argue that the abnormal NST, inadequate monitoring and failure to intervene formed part of a continuous sequence culminating in the child's injury.",
+
+    opposition:
+      "The MEC can argue that the plaintiff has not identified the damage-causing event and cannot rely on negligence alone to establish causation."
+  },
+
+
+  expertLogic: {
+    title: "Expert Evidence Must Have a Logical Basis",
+
+    meaning:
+      "Expert opinion is not accepted merely because it comes from a qualified expert. The opinion must be supported by facts, reasoning and a defensible methodology.",
+
+    application:
+      "The SCA examined the competing expert opinions and placed weight on whether the experts explained the reasoning underlying their conclusions.",
+
+    question:
+      "Why should a court prefer one expert opinion over another?",
+
+    submission:
+      "The respondent can argue that her experts connected the clinical evidence to the conclusion that intervention could have prevented the injury.",
+
+    opposition:
+      "The MEC can argue that the respondent's experts did not sufficiently explain the factual and scientific basis for their conclusions."
+  },
+
+
+  unsupported: {
+    title: "Unsupported Expert Opinion",
+
+    meaning:
+      "An expert opinion loses probative value where it is not adequately supported by established facts, medical literature or logical reasoning.",
+
+    application:
+      "The SCA identified weaknesses in Dr Mtsi's evidence, including the absence of a demonstrated link between the urinary infection and cerebral palsy and difficulties in interpreting aspects of the medical records.",
+
+    question:
+      "Was the expert conclusion supported by evidence or was it speculative?",
+
+    submission:
+      "The respondent may contend that the expert evidence must be assessed as a whole and in the context of the clinical sequence.",
+
+    opposition:
+      "The MEC can point to the absence of a demonstrated scientific foundation for some of the conclusions advanced by the respondent's experts."
+  },
+
+
+  reasoned: {
+    title: "Logical and Well-Reasoned Expert Evidence",
+
+    meaning:
+      "Where competing expert opinions exist, the court must examine the factual foundations and reasoning behind each opinion rather than simply counting the number of experts on either side.",
+
+    application:
+      "The SCA considered Professor Odendaal's and Professor van Toorn's opinions to be founded on established facts and supported by logical reasoning.",
+
+    question:
+      "What makes an expert opinion persuasive to a court?",
+
+    submission:
+      "The respondent can challenge whether the opposing experts adequately accounted for all the clinical evidence.",
+
+    opposition:
+      "The MEC can submit that its experts explained their conclusions using the CTG evidence, clinical findings and the child's post-birth course."
+  },
+
+
+  causation: {
+    title: "Negligence Does Not Automatically Establish Causation",
+
+    meaning:
+      "A breach of duty and causation are separate elements. A plaintiff may establish negligent conduct but still fail if the evidence does not show that the negligence caused the damage.",
+
+    application:
+      "The SCA accepted that the medical staff should not have acted as they did, but held that this did not establish that their conduct caused the cerebral palsy.",
+
+    question:
+      "What evidence connects the negligent omission to the injury?",
+
+    submission:
+      "The respondent can argue that timely intervention would probably have prevented or reduced the neurological injury.",
+
+    opposition:
+      "The MEC can argue that the injury probably pre-dated the negligent conduct and that the evidence did not establish a causal connection."
+  },
+
+
+  reverse: {
+    title: "Reverse Reasoning Is Impermissible",
+
+    meaning:
+      "A court cannot reason from the fact that severe harm occurred to the conclusion that the defendant must have caused that harm negligently.",
+
+    application:
+      "The SCA rejected an approach in which the existence of cerebral palsy and references to birth asphyxia were treated as proof that the injury occurred because of negligent intrapartum treatment.",
+
+    question:
+      "Are you reasoning from the evidence to the conclusion, or from the injury backwards to negligence?",
+
+    submission:
+      "The respondent must identify affirmative evidence connecting the negligent conduct to the injury rather than relying merely on the seriousness of the outcome.",
+
+    opposition:
+      "The MEC can submit that the respondent's case impermissibly starts with the child's injury and works backwards to identify a negligent cause."
+  },
+
+
+  harm: {
+    title: "Harm Alone Is Not Proof of Negligence or Causation",
+
+    meaning:
+      "The existence of a serious medical injury does not itself establish that a practitioner caused the injury or that the injury resulted from negligent conduct.",
+
+    application:
+      "Although I.Q. suffered profound neurological injury, the SCA held that the injury itself could not establish when the damage occurred or who caused it.",
+
+    question:
+      "What evidence exists apart from the fact of injury?",
+
+    submission:
+      "The respondent can rely on the clinical records, abnormal NST findings, monitoring failures and expert evidence as evidence beyond the injury itself.",
+
+    opposition:
+      "The MEC can argue that the contemporaneous clinical evidence does not establish the timing or mechanism of the injury and therefore does not prove causation."
+  },
+
+
+  final: {
+    title: "Failure to Prove the Damage-Causing Event",
+
+    meaning:
+      "Where the plaintiff cannot prove the damage-causing event and its causal relationship to the defendant's conduct, the claim cannot succeed merely because a breach of duty has been established.",
+
+    application:
+      "The SCA concluded that the respondent had not established the causal link between the negligent conduct and the cerebral palsy. The appeal was therefore upheld and the claim dismissed.",
+
+    question:
+      "What element of the delictual claim remains unproved?",
+
+    submission:
+      "The respondent can argue that the evidence, viewed cumulatively and on the balance of probabilities, establishes a sufficient causal connection.",
+
+    opposition:
+      "The MEC can submit that the unresolved timing and cause of the injury leave the plaintiff unable to prove causation on the required standard."
+  }
+
+};
+
+
+function showCommentary(key) {
+
+  const data = commentaryData[key];
+
+  document.getElementById("commentaryTitle").textContent =
+    data.title;
+
+  document.getElementById("commentaryMeaning").textContent =
+    data.meaning;
+
+  document.getElementById("commentaryApplication").textContent =
+    data.application;
+
+  document.getElementById("commentaryQuestion").textContent =
+    data.question;
+
+  document.getElementById("commentarySubmission").textContent =
+    data.submission;
+
+  document.getElementById("commentaryOpposition").textContent =
+    data.opposition;
+
+  document.getElementById("commentary").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
+}
+
+
+function closeCommentary() {
+
+  document.getElementById("commentary").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
+
+}
+
+
+/* Advocacy recorder */
+
+let mediaRecorder;
+let audioChunks = [];
+let audioBlob;
+let audioUrl;
+
+async function startRecording() {
+
+  try {
+
+    const stream =
+      await navigator.mediaDevices.getUserMedia({
+        audio: true
+      });
+
+    audioChunks = [];
+
+    mediaRecorder =
+      new MediaRecorder(stream);
+
+    mediaRecorder.ondataavailable = function(event) {
+
+      if (event.data.size > 0) {
+        audioChunks.push(event.data);
+      }
+
+    };
+
+    mediaRecorder.onstop = function() {
+
+      audioBlob =
+        new Blob(audioChunks, {
+          type: "audio/webm"
+        });
+
+      audioUrl =
+        URL.createObjectURL(audioBlob);
+
+      document.getElementById("audioPlayback").src =
+        audioUrl;
+
+      stream.getTracks().forEach(track => track.stop());
+
+    };
+
+    mediaRecorder.start();
+
+    document.getElementById("recordingStatus").textContent =
+      "Recording...";
+
+  } catch (error) {
+
+    document.getElementById("recordingStatus").textContent =
+      "Microphone access was not available. Please allow microphone access in your browser.";
+
+  }
+
+}
+
+
+function stopRecording() {
+
+  if (mediaRecorder && mediaRecorder.state !== "inactive") {
+
+    mediaRecorder.stop();
+
+    document.getElementById("recordingStatus").textContent =
+      "Recording stopped.";
+
+  }
+
+}
+
+
+function playRecording() {
+
+  const audio =
+    document.getElementById("audioPlayback");
+
+  if (audio.src) {
+    audio.play();
+  }
+
+}
+
+
+function clearRecording() {
+
+  const audio =
+    document.getElementById("audioPlayback");
+
+  audio.pause();
+  audio.removeAttribute("src");
+  audio.load();
+
+  audioChunks = [];
+  audioBlob = null;
+
+  if (audioUrl) {
+    URL.revokeObjectURL(audioUrl);
+    audioUrl = null;
+  }
+
+  document.getElementById("recordingStatus").textContent =
+    "Recording cleared.";
+
+}
+
+</script>
+
+</body>
+

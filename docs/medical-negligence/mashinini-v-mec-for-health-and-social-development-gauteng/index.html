@@ -1,0 +1,1628 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Mashinini v MEC for Health and Social Development | Fluently Case Analysis
+</title>
+
+<style>
+
+/* ==================================================
+   FLUENTLY CASE ANALYSIS
+   MASHININI
+================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f7;
+  color: #222;
+  line-height: 1.7;
+}
+
+/* ==================================================
+   HEADER
+================================================== */
+
+header {
+  background: #111;
+  color: white;
+  padding: 24px 30px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: 1px;
+}
+
+header p {
+  margin: 5px 0 0;
+  color: #ccc;
+}
+
+/* ==================================================
+   NAVIGATION
+================================================== */
+
+nav {
+  background: white;
+  border-bottom: 1px solid #ddd;
+  padding: 14px 30px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #7d3c98;
+}
+
+/* ==================================================
+   MAIN
+================================================== */
+
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* ==================================================
+   CASE OVERVIEW
+================================================== */
+
+.case-overview {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+}
+
+.case-overview h2 {
+  margin-top: 0;
+}
+
+.case-details {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 8px 20px;
+}
+
+.case-label {
+  font-weight: bold;
+}
+
+/* ==================================================
+   JUDGMENT
+================================================== */
+
+.judgment-container {
+  background: white;
+  padding: 35px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.judgment-title {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.judgment-title h2 {
+  margin-bottom: 5px;
+}
+
+.judgment-title p {
+  color: #666;
+}
+
+.judgment-paragraph {
+  position: relative;
+  margin: 0 0 22px 0;
+  padding-left: 48px;
+}
+
+.paragraph-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: bold;
+  color: #555;
+}
+
+.judgment-heading {
+  font-weight: bold;
+  font-size: 19px;
+  margin-top: 35px;
+  margin-bottom: 15px;
+}
+
+.judgment-subheading {
+  font-weight: bold;
+  font-size: 17px;
+  margin-top: 30px;
+}
+
+/* ==================================================
+   INTERACTIVE LEGAL PRINCIPLES
+================================================== */
+
+.legal-principle {
+  display: inline;
+  background: #eadcff;
+  border-bottom: 2px solid #8e44ad;
+  color: #5b2c6f;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+.legal-principle:hover {
+  background: #d9bff0;
+}
+
+/* ==================================================
+   COMMENTARY POPOVER
+================================================== */
+
+#commentary-popover {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: min(720px, 92vw);
+  max-height: 85vh;
+
+  overflow-y: auto;
+
+  background: white;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.30);
+
+  border: 1px solid #ccc;
+}
+
+.commentary-header {
+  background: #6c3483;
+  color: white;
+  padding: 18px 22px;
+}
+
+.commentary-header h3 {
+  margin: 0;
+}
+
+.commentary-body {
+  padding: 22px;
+}
+
+.commentary-section {
+  margin-bottom: 22px;
+}
+
+.commentary-section h4 {
+  margin-bottom: 8px;
+  color: #6c3483;
+}
+
+.question-box {
+  background: #f5f1f7;
+  border-left: 5px solid #8e44ad;
+  padding: 15px;
+  margin-top: 12px;
+}
+
+.submission-box {
+  background: #f8f8f8;
+  border-left: 5px solid #2980b9;
+  padding: 15px;
+  margin-top: 12px;
+}
+
+.opposition-box {
+  background: #f8f8f8;
+  border-left: 5px solid #777;
+  padding: 15px;
+  margin-top: 12px;
+}
+
+.close-button {
+  float: right;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ==================================================
+   BUTTONS
+================================================== */
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 4px 4px 4px 0;
+}
+
+.primary-button {
+  background: #6c3483;
+  color: white;
+}
+
+.secondary-button {
+  background: #ddd;
+  color: #222;
+}
+
+.danger-button {
+  background: #922b21;
+  color: white;
+}
+
+button:hover {
+  opacity: .85;
+}
+
+/* ==================================================
+   RECORDING
+================================================== */
+
+.recording-box {
+  background: #f4f4f4;
+  padding: 18px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.recording-status {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ==================================================
+   ORDER
+================================================== */
+
+.order-box {
+  background: #fafafa;
+  border-left: 5px solid #333;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer {
+  margin-top: 50px;
+  padding: 30px;
+  text-align: center;
+  background: #111;
+  color: #aaa;
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
+
+@media (max-width: 700px) {
+
+  .judgment-container {
+    padding: 20px;
+  }
+
+  .case-details {
+    grid-template-columns: 1fr;
+  }
+
+  .judgment-paragraph {
+    padding-left: 38px;
+  }
+
+  #commentary-popover {
+    max-height: 90vh;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<header>
+
+  <h1>FLUENTLY</h1>
+
+  <p>CASE ANALYSIS</p>
+
+</header>
+
+
+<nav>
+
+  <a href="../../../index.html">
+    Case Repository
+  </a>
+
+  <a href="../../index.html">
+    Medical Negligence
+  </a>
+
+</nav>
+
+
+<main>
+
+<!-- ==================================================
+     CASE OVERVIEW
+================================================== -->
+
+<section class="case-overview">
+
+  <h2>
+    Mashinini v The Member of the Executive Council
+    for Health and Social Development,
+    Gauteng Provincial Government
+  </h2>
+
+  <div class="case-details">
+
+    <div class="case-label">Citation</div>
+    <div>
+      (335/2021) [2023] ZASCA 53
+    </div>
+
+    <div class="case-label">Court</div>
+    <div>
+      Supreme Court of Appeal
+    </div>
+
+    <div class="case-label">Date</div>
+    <div>
+      18 April 2023
+    </div>
+
+    <div class="case-label">Practice Area</div>
+    <div>
+      Medical Negligence
+    </div>
+
+    <div class="case-label">Legal Areas</div>
+    <div>
+      Medical Negligence · Aquilian Damages ·
+      Future Medical Expenses · Public Healthcare Defence ·
+      Evidentiary Burden · Quantum · Development of the Common Law
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================================
+     JUDGMENT
+================================================== -->
+
+<section id="judgment" class="judgment-container">
+
+  <div class="judgment-title">
+
+    <h2>Judgment</h2>
+
+    <p>
+      Zondi JA
+      (Schippers and Gorven JJA and Mali and Siwendu AJJA concurring)
+    </p>
+
+  </div>
+
+
+  <h3 class="judgment-heading">
+    Summary
+  </h3>
+
+  <p>
+    Delict – action for damages based on medical negligence of
+    public hospital staff – claim for future medical and hospital
+    expenses – public healthcare defence – whether expenses for
+    future medical treatment are reasonable and whether such
+    treatment can be provided at the State hospital – defendant
+    failed to adduce evidence to support its contention that
+    medical services of the same, or an acceptably high standard
+    available at the State hospital at no cost or less than that
+    claimed by plaintiff – need to develop common law not
+    established.
+  </p>
+
+
+  <h3 class="judgment-heading">
+    Facts
+  </h3>
+
+
+  <p class="judgment-paragraph" id="paragraph-1">
+
+    <span class="paragraph-number">[1]</span>
+
+    On 16 May 2014 the appellant, Mrs Mashinini, a 39 year old
+    professional nurse at Chris Hani Baragwanath Hospital,
+    Johannesburg (Chris Hani Baragwanath Hospital), underwent a
+    surgical procedure at Tambo Memorial Hospital, Boksburg for
+    the removal of the gallbladder (laparoscopic cholecystectomy).
+    During the procedure the appellant sustained a major bile duct
+    and hepatic artery injury. This required emergency management,
+    attempted endoscopic management and a bile duct reconstruction
+    which was performed at Greys Hospital, Pietermaritzburg.
+    As a result of the injury arising from the failed operation,
+    the appellant had to undergo various surgical procedures aimed
+    at correcting the damage.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-2">
+
+    <span class="paragraph-number">[2]</span>
+
+    On 18 January 2017 the appellant instituted an action for
+    damages based on medical negligence in the Gauteng Division
+    of the High Court, Johannesburg (high court) against the
+    respondent, the MEC for Health and Social Development, Gauteng
+    (MEC) and a doctor who performed the failed operation.
+    The appellant alleged that the hospital staff involved were
+    negligent and that such negligence had caused her injury and
+    the resultant damages. The appellant claimed for past hospital
+    and medical expenses, future medical expenses, future loss of
+    earnings and general damages.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-3">
+
+    <span class="paragraph-number">[3]</span>
+
+    In relation to the claim for future medical and hospital
+    expenses, the MEC raised the so-called
+
+    <span class="legal-principle"
+          onclick="openCommentary('publicHealthcare')">
+      public healthcare defence
+    </span>.
+
+    In broad terms, the MEC pleaded that the court should develop
+    the common law and order that she (the MEC) should be directed
+    to provide future medical treatment at Chris Hani Baragwanath
+    Hospital, instead of compensating the appellant in monetary
+    terms. In due course the liability to compensate the appellant
+    for the injuries sustained as a consequence of the failed
+    surgery was conceded by the MEC and the matter proceeded only
+    on the quantum of damages arising from those injuries.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-4">
+
+    <span class="paragraph-number">[4]</span>
+
+    The MEC’s defence found favour with the high court and Adams J
+    made the following order:
+
+    <div class="order-box">
+
+      <p>
+        ‘(1) The plaintiff’s claim for past hospital and medical
+        expenses is postponed sine die.
+      </p>
+
+      <p>
+        (2) In respect of those services and items listed under
+        the claims for Specialist Surgeon’s Expenses in the reports
+        of Professor Damon Bizos and Dr BH Pienaar, and in their
+        joint minute of the pre-trial conference held between them,
+        the MEC is directed to ensure that these services are
+        rendered to, and procured for Mrs Mashinini by the
+        Charlotte Maxeke Johannesburg Academic Hospital (CMJAH)
+        as and when required at the same or better level of service
+        than in the healthcare sector.
+      </p>
+
+      <p>
+        (3) Judgement is hereby granted in favour of the plaintiff
+        against the defendant for payment of R2 084 250.40,
+        interest and costs.’
+      </p>
+
+    </div>
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-5">
+
+    <span class="paragraph-number">[5]</span>
+
+    It is apparent from this that the appellant was not awarded
+    damages for future medical and surgical treatment in money.
+    Instead, the trial court directed that these be provided by the
+    MEC at Charlotte Maxeke Johannesburg Academic Hospital
+    (Charlotte Maxeke Hospital) as and when required and at the
+    same or better level of service than in private health care.
+    It is this part of the order with which the appellant is not
+    satisfied. She sought and obtained leave to appeal against
+    this part of the order from the high court.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-6">
+
+    <span class="paragraph-number">[6]</span>
+
+    The issue is whether the high court was correct in not awarding
+    the appellant the sum of R879 314 for future medical and
+    surgical treatment. The determination of this issue requires
+    an analysis of the relevant pleadings and evidence that was
+    adduced in the trial.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-7">
+
+    <span class="paragraph-number">[7]</span>
+
+    The appellant claimed R1 765 000 for future medical expenses
+    to which the MEC pleaded the ‘public healthcare defence’ as
+    follows:
+
+    <div class="order-box">
+
+      <p>
+        ‘8.1 The Defendant denies that he is liable to the Plaintiff
+        for the said damages and further pleads in the alternate
+        that he is in a position to ensure that service and items
+        that have been recommended will be rendered or supplied
+        by his Department or some other State Department at
+        Chris Hani Baragwanath Hospital.
+      </p>
+
+      <p>
+        8.2 The Defendant accordingly prays that, taking into
+        account the interest of justice and acting in terms of
+        Section 173 of the Constitution, this Honourable Court
+        should develop the common law and should order that
+        instead of being required to compensate the plaintiff in
+        money in respect of services referred to above, the
+        Defendant is directed to ensure that the services are
+        rendered or the items are supplied.
+      </p>
+
+      <p>
+        8.3 The Defendant will be able to ensure that the services
+        are rendered and the items are provided, both of an
+        acceptable quality and cost that is lower than the amount
+        that the Plaintiff claims.
+      </p>
+
+      <p>
+        8.4 The savings will make available more scarce resources
+        for the State to fulfil its obligations under section 27(2)
+        of the Constitution.
+      </p>
+
+    </div>
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-8">
+
+    <span class="paragraph-number">[8]</span>
+
+    In their joint minutes the parties’ experts agreed on the nature
+    and extent of medical and surgical treatment that the appellant
+    would require in the future and that an amount of R879 314
+    (after applying a 15 percent general contingency) should be
+    provided for such treatment, if provided in a private healthcare
+    setting. It was not disputed by the MEC that the appellant
+    would need the medical services identified by the experts in
+    their joint minutes. What was contested by the MEC is the
+    reasonableness of the cost of providing such services on the
+    sole basis that the MEC could provide the required medical
+    treatment at Chris Hani Baragwanath Hospital as and when
+    required and at the same or better level of service than in the
+    private healthcare sector.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-9">
+
+    <span class="paragraph-number">[9]</span>
+
+    It must be borne in mind that this is an
+
+    <span class="legal-principle"
+          onclick="openCommentary('aquilian')">
+      Aquilian action
+    </span>.
+
+    Under such an action, the defendant is obliged to make good
+    the difference between the value of the plaintiff’s estate after
+    the commission of the delict and the value it would have had
+    if the delict had not been committed. The purpose of an award
+    of damages is to compensate the victim in money terms for
+    the loss suffered.
+
+    A plaintiff must allege and prove the quantum of damages
+    suffered because of the defendant’s wrongful act.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-10">
+
+    <span class="paragraph-number">[10]</span>
+
+    In Ngubane v South African Transport Services (Ngubane) this
+    Court referred with approval to the passage in Erasmus v Davis
+    concerning the plaintiff’s onus of proving both damage and
+    the quantum thereof.
+
+    <span class="legal-principle"
+          onclick="openCommentary('burdenQuantum')">
+      The onus rests on the plaintiff to prove the damage and its quantum.
+    </span>
+
+    Where evidence establishes the reasonable and necessary cost
+    of the required treatment, that evidence may constitute prima
+    facie proof of the amount required.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-11">
+
+    <span class="paragraph-number">[11]</span>
+
+    A ‘public healthcare defence’ in the form of a ‘mitigation of
+    damages defence’ was raised in Ngubane to oppose a claim for
+    damages in respect of future medical expenses and adaptive
+    aids.
+
+    This Court rejected the proposition that merely raising the
+    possibility of cheaper State treatment was sufficient.
+
+    The evidence must be considered as a whole, including evidence
+    concerning an alternative and cheaper source of medical
+    services.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-12">
+
+    <span class="paragraph-number">[12]</span>
+
+    This Court went on to state that the respondent was required
+    to adduce evidence in support of its contention that, for the
+    relevant period, medical services of the same, or an acceptably
+    high, standard would be available to the appellant at no cost
+    or for less than that claimed.
+
+    <span class="legal-principle"
+          onclick="openCommentary('evidentiaryBurden')">
+      A pleaded public healthcare defence must be supported by evidence.
+    </span>
+
+    This frames the matter within Aquilian principles.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-13">
+
+    <span class="paragraph-number">[13]</span>
+
+    The Constitutional Court in MEC for Health v DZ endorsed the
+    approach adopted in Ngubane when faced with the public
+    healthcare defence.
+
+    It expressed the view that Ngubane was authority for allowing
+    a defendant to produce evidence that medical services of the
+    same or higher standard, at no or lesser cost than private
+    medical care, will be available to a plaintiff in future.
+
+    <span class="legal-principle"
+          onclick="openCommentary('rebutPrimaFacie')">
+      Cogent evidence may rebut the presumption that private future healthcare is reasonable.
+    </span>
+
+  </p>
+
+
+  <h3 class="judgment-subheading">
+    The Appellant's Evidence
+  </h3>
+
+
+  <p class="judgment-paragraph" id="paragraph-14">
+
+    <span class="paragraph-number">[14]</span>
+
+    The appellant testified about the nature of her medical
+    condition and its management by various specialists.
+
+    During 2014, after the failed surgical procedure, she
+    experienced excruciating and burning pain in the abdominal
+    area. The cause of the pain was investigated and an
+    accumulation of bile fluid in the appellant’s stomach was
+    identified.
+
+    She was also treated at Charlotte Maxeke Hospital where she
+    was attended to by Professor Bizos. Her medical expenses were
+    covered by GEMS Medical Aid Fund. Professor Bizos explained
+    that she still needed to undergo further surgical procedures
+    in future.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-15">
+
+    <span class="paragraph-number">[15]</span>
+
+    Although the appellant was satisfied with the treatment she
+    received from doctors at Charlotte Maxeke Hospital and Chris
+    Hani Baragwanath Hospital, she complained about the long
+    waiting periods at the casualty sections of these public
+    healthcare facilities.
+
+    Her evidence was that, except in emergency situations,
+    patients are attended to on a first come, first served basis.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-16">
+
+    <span class="paragraph-number">[16]</span>
+
+    Professor Bizos testified on behalf of the appellant.
+
+    He was, among other things, a Gastro Intestinal Surgeon and
+    the head of Surgical Gastroenterology at the University of
+    Witwatersrand.
+
+    He also ran a Surgical Gastroenterology Unit at Charlotte
+    Maxeke Hospital and had a private practice at Donald Gordon
+    Medical Centre.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-17">
+
+    <span class="paragraph-number">[17]</span>
+
+    Professor Bizos confirmed that he had attended to the appellant
+    at Charlotte Maxeke Hospital and also at Donald Gordon Medical
+    Centre.
+
+    His opinion was that although the medical care which the
+    appellant had received at Charlotte Maxeke Hospital had been
+    good, treatment there was marked by a lack of resources,
+    waiting periods and bed availability.
+
+    This, in his view, could present a problem for the appellant
+    given the complexity of her clinical condition.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-18">
+
+    <span class="paragraph-number">[18]</span>
+
+    Professor Bizos opined that a typical general surgeon or
+    physician would not have sufficient insight to deal with the
+    nuances of this particular case.
+
+    He stated that although Chris Hani Baragwanath Hospital and
+    Charlotte Maxeke Hospital have dedicated units, a patient
+    receiving treatment there does not have direct access to a
+    specified surgeon.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-19">
+
+    <span class="paragraph-number">[19]</span>
+
+    Professor Bizos concluded that the appellant’s case was a
+    complex one and required direct access to a specified surgeon,
+    something which the State hospitals were unable to provide.
+
+    Emergency procedures could be performed at the private
+    hospital at any time, whereas at Charlotte Maxeke Hospital
+    they would be done during office hours.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-20">
+
+    <span class="paragraph-number">[20]</span>
+
+    In the high court the MEC contended that the future hospital
+    and medical expenses should be dealt with on the basis of
+    MSM obo KBM v Member of the Executive Council for Health,
+    Gauteng Provincial Government.
+
+    In that matter, Keightley J granted an order requiring the MEC
+    to provide certain specified future medical services to the
+    child of the plaintiff at a particular hospital.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-21">
+
+    <span class="paragraph-number">[21]</span>
+
+    This contention found favour with the high court.
+
+    It found that the medical services to be provided by specialist
+    surgeons were and would be available to the appellant in
+    future in the public healthcare system at no or lesser cost
+    than the cost of private medical care.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-22">
+
+    <span class="paragraph-number">[22]</span>
+
+    On appeal, the appellant submitted that the high court erred
+    in relying on MSM as authority for the proposition that the
+    common law rule that delictual damages be paid in money had
+    been developed so as to permit a court to order compensation
+    in kind.
+
+    Secondly, it was submitted that no factual evidence was
+    presented to substantiate the pleaded argument concerning
+    development of the common law.
+
+    <span class="legal-principle"
+          onclick="openCommentary('commonLaw')">
+      A court must first establish the ambit of the existing common law before determining whether development is required.
+    </span>
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-23">
+
+    <span class="paragraph-number">[23]</span>
+
+    Arguing in support of the order of the high court, counsel for
+    the MEC submitted that the factual material was clear that the
+    appellant had been receiving the required treatment at the
+    public hospital and that she was not prejudiced.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-24">
+
+    <span class="paragraph-number">[24]</span>
+
+    In my view the appellant discharged the onus of proving,
+    not only that she had suffered damages in respect of which
+    medical treatment would be required in the future, but also
+    the quantum thereof.
+
+    The evidence led on her behalf established that she would
+    need medical treatment in future and that the cost of providing
+    such treatment would be R879 314.
+
+    <span class="legal-principle"
+          onclick="openCommentary('primaFacie')">
+      Prima facie proof of reasonable and necessary future medical costs may establish the plaintiff's damages.
+    </span>
+
+    There was nothing to show that the amount claimed was not
+    reasonable and necessary.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-25">
+
+    <span class="paragraph-number">[25]</span>
+
+    I agree with the appellant’s submission that the high court
+    misdirected itself in the application of the principles
+    established in MSM.
+
+    MSM did not develop the common law so as to provide for the
+    implementation of the public healthcare defence.
+
+    After considering all the evidence, the high court had concluded
+    that the identified services were available at Charlotte Maxeke
+    Hospital and that the standard would be the same, if not better,
+    than private healthcare.
+
+    In essence, this was not an order which went beyond the common
+    law, but one consented to by the defendant in that matter.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-26">
+
+    <span class="paragraph-number">[26]</span>
+
+    In the present matter, as the MEC pleaded the ‘public
+    healthcare defence’, she bore an
+
+    <span class="legal-principle"
+          onclick="openCommentary('rebutBurden')">
+      evidentiary burden to rebut the prima facie case established by the appellant
+    </span>.
+
+    The MEC presented no evidence to counter that of Professor
+    Bizos, which was not contradicted, that State hospitals in
+    general, because of the manner in which they operate, were
+    not capable of rendering medical services to patients such as
+    the appellant with complicated clinical conditions which
+    require direct and immediate access to specialist surgeons.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-27">
+
+    <span class="paragraph-number">[27]</span>
+
+    The MEC’s ‘public healthcare defence’ should accordingly have
+    been dismissed by the high court since there was no evidence
+    before it that medical services of the same, or an acceptably
+    high, standard would be available at no cost or for less than
+    that claimed by the appellant.
+
+    In fact, the only evidence before it, unchallenged by the MEC,
+    was to the contrary.
+
+    The amount of R879 314 should therefore have been awarded to
+    the appellant for future surgical and medical expenses.
+
+  </p>
+
+
+  <p class="judgment-paragraph" id="paragraph-28">
+
+    <span class="paragraph-number">[28]</span>
+
+    In the result I make the following order:
+
+    <div class="order-box">
+
+      <p>
+        1. The appeal is upheld with costs including the costs of
+        two counsel where so employed.
+      </p>
+
+      <p>
+        2. The order of the high court is set aside and is replaced
+        with the following order:
+      </p>
+
+      <p>
+        ‘Judgment is hereby granted in favour of the plaintiff
+        against the defendant for:
+      </p>
+
+      <p>
+        (a) payment of the sum of R3 213 564.40.
+      </p>
+
+      <p>
+        (b) payment of interest on the said sum at the prevailing
+        legal interest rate from the date of this judgment to date
+        of final payment.
+      </p>
+
+      <p>
+        (c) payment of the plaintiff’s costs of suit, including the
+        reasonable costs of all medico-legal reports and joint
+        minutes obtained by the plaintiff, and the qualifying fees
+        and court attendance fees of the plaintiff’s expert
+        witnesses.
+      </p>
+
+      <p>
+        (d) the plaintiff’s claim for past hospital and medical
+        expenses is postponed sine die.’
+      </p>
+
+    </div>
+
+  </p>
+
+
+  <!-- ==================================================
+       ADVOCACY PRACTICE
+  ================================================== -->
+
+  <section class="separate-judgment">
+
+    <h2>Advocacy Practice</h2>
+
+    <p>
+      Use this section to practise presenting the legal argument
+      arising from the judgment.
+    </p>
+
+    <div class="recording-box">
+
+      <div class="recording-status" id="recordingStatus">
+        Ready to record.
+      </div>
+
+      <button
+        class="primary-button"
+        onclick="startRecording()">
+        Record
+      </button>
+
+      <button
+        class="danger-button"
+        onclick="stopRecording()">
+        Stop
+      </button>
+
+      <button
+        class="secondary-button"
+        onclick="playRecording()">
+        Play
+      </button>
+
+      <button
+        class="secondary-button"
+        onclick="clearRecording()">
+        Clear
+      </button>
+
+      <audio id="recordedAudio" controls></audio>
+
+    </div>
+
+  </section>
+
+
+</section>
+
+</main>
+
+
+<!-- ==================================================
+     COMMENTARY POPOVER
+================================================== -->
+
+<div id="commentary-popover">
+
+  <div class="commentary-header">
+
+    <button
+      class="close-button"
+      onclick="closeCommentary()">
+      ×
+    </button>
+
+    <h3 id="commentaryTitle">
+      Legal Principle
+    </h3>
+
+  </div>
+
+
+  <div class="commentary-body">
+
+    <div class="commentary-section">
+
+      <h4>Meaning</h4>
+
+      <p id="commentaryMeaning"></p>
+
+    </div>
+
+
+    <div class="commentary-section">
+
+      <h4>Application to Mashinini</h4>
+
+      <p id="commentaryApplication"></p>
+
+    </div>
+
+
+    <div class="commentary-section">
+
+      <h4>Question</h4>
+
+      <div class="question-box"
+           id="commentaryQuestion">
+      </div>
+
+    </div>
+
+
+    <div class="commentary-section">
+
+      <h4>Possible Submission</h4>
+
+      <div class="submission-box"
+           id="commentarySubmission">
+      </div>
+
+    </div>
+
+
+    <div class="commentary-section">
+
+      <h4>Opposing Submission</h4>
+
+      <div class="opposition-box"
+           id="commentaryOpposition">
+      </div>
+
+    </div>
+
+
+    <button
+      class="primary-button"
+      onclick="closeCommentary()">
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+
+<footer>
+
+  FLUENTLY — CASE ANALYSIS
+
+</footer>
+
+
+<script>
+
+/* ==================================================
+   LEGAL COMMENTARY
+================================================== */
+
+const commentary = {
+
+  publicHealthcare: {
+
+    title:
+      "Public Healthcare Defence",
+
+    meaning:
+      "The public healthcare defence arises where a defendant argues that future medical treatment can be provided through the State healthcare system rather than by paying the plaintiff monetary compensation for future private treatment.",
+
+    application:
+      "In Mashinini, the MEC did not dispute that the appellant required future medical treatment. The MEC instead argued that the required services could be provided at a State hospital and therefore that the appellant should not receive the claimed monetary amount.",
+
+    question:
+      "Is merely asserting that State treatment is available sufficient to displace a claim for future private medical expenses?",
+
+    submission:
+      "The defence requires more than an assertion. The MEC had to establish, with evidence, that treatment of the same or an acceptably high standard would actually be available at no cost or at a lower cost.",
+
+    opposition:
+      "The MEC could argue that the State hospitals had specialist units and that the appellant had already received treatment there, making future private treatment unnecessary."
+  },
+
+
+  aquilian: {
+
+    title:
+      "Aquilian Damages",
+
+    meaning:
+      "An Aquilian damages claim seeks to restore the plaintiff financially by compensating for the difference between the value of the plaintiff's estate after the delict and the value it would have had if the delict had not occurred.",
+
+    application:
+      "The SCA treated the claim for future medical treatment within ordinary delictual damages principles. The starting point was therefore monetary compensation for the proven loss, rather than automatically ordering treatment in kind.",
+
+    question:
+      "What is the normal purpose of damages in an Aquilian action?",
+
+    submission:
+      "The ordinary remedy is monetary compensation sufficient to place the plaintiff, as far as money can do so, in the position she would have occupied had the delict not occurred.",
+
+    opposition:
+      "The defendant may argue that the plaintiff's actual future needs can be met without monetary payment if equivalent State services are available."
+  },
+
+
+  burdenQuantum: {
+
+    title:
+      "Burden of Proving Quantum",
+
+    meaning:
+      "A plaintiff claiming damages must establish both the existence of the loss and the amount of that loss.",
+
+    application:
+      "Mashinini established the future medical treatment required and the cost of that treatment through the evidence and joint minutes of the experts.",
+
+    question:
+      "What did the appellant have to prove before the court could award future medical expenses?",
+
+    submission:
+      "The appellant had to establish that future treatment was required and prove the reasonable and necessary cost of that treatment.",
+
+    opposition:
+      "The MEC could challenge either the necessity of the treatment or the reasonableness of the claimed cost, provided the challenge was supported by evidence."
+  },
+
+
+  evidentiaryBurden: {
+
+    title:
+      "A Pleaded Defence Requires Evidence",
+
+    meaning:
+      "A party cannot ordinarily establish a factual defence merely by pleading it. Where the defence depends upon the availability, quality and cost of alternative treatment, evidence is required.",
+
+    application:
+      "The MEC pleaded that State hospitals could provide the required services at an acceptable standard and at lower cost, but the SCA found that the MEC did not produce sufficient evidence to support that contention.",
+
+    question:
+      "Why was the MEC's pleading alone insufficient?",
+
+    submission:
+      "The defence depended upon factual propositions about future availability, quality and cost of treatment. Those propositions had to be established by evidence.",
+
+    opposition:
+      "The MEC could contend that the existing public healthcare infrastructure and the appellant's previous treatment provided a factual basis for the defence."
+  },
+
+
+  rebutPrimaFacie: {
+
+    title:
+      "Rebutting Prima Facie Proof",
+
+    meaning:
+      "Evidence establishing the reasonable and necessary cost of future medical treatment may constitute prima facie proof of the damages. The defendant may rebut that case with sufficiently cogent evidence.",
+
+    application:
+      "The appellant's evidence established the future treatment required and its cost. The MEC needed evidence capable of disturbing the resulting prima facie case.",
+
+    question:
+      "What kind of evidence would be capable of rebutting the appellant's prima facie case?",
+
+    submission:
+      "The MEC needed cogent evidence demonstrating that equivalent or acceptably high-standard treatment would actually be available through the State system at no or lesser cost.",
+
+    opposition:
+      "A defendant could argue that sufficiently detailed evidence concerning the State facilities, specialists and services would undermine the reasonableness of private treatment costs."
+  },
+
+
+  commonLaw: {
+
+    title:
+      "Development of the Common Law",
+
+    meaning:
+      "Before a court develops the common law, it must identify the existing common-law rule and determine whether development is actually required in light of the Constitution.",
+
+    application:
+      "The SCA held that MSM had not developed the common law in the manner suggested by the MEC. The order in MSM could be understood within existing delictual principles because the defendant had consented to the arrangement on the basis that the monetary award would be reduced.",
+
+    question:
+      "Did Mashinini require the SCA to develop the common law to create a new public healthcare defence?",
+
+    submission:
+      "No. The existing principles governing delictual damages were sufficient to determine the dispute. The real question was whether the MEC had proved that equivalent treatment was available.",
+
+    opposition:
+      "The MEC could argue that public resources and section 27 constitutional obligations justified reconsideration of the ordinary monetary damages rule."
+  },
+
+
+  primaFacie: {
+
+    title:
+      "Prima Facie Proof of Future Medical Costs",
+
+    meaning:
+      "Evidence establishing the reasonable and necessary cost of future treatment can constitute prima facie proof of the damages required to place the plaintiff financially in the position she would otherwise have occupied.",
+
+    application:
+      "The expert evidence established that the appellant required future medical treatment and quantified that treatment at R879 314. The MEC did not successfully challenge that evidence.",
+
+    question:
+      "Why did the SCA accept the R879 314 amount for future treatment?",
+
+    submission:
+      "The amount was supported by the expert evidence and joint minutes, and there was no contrary evidence showing that the treatment was unnecessary or that the amount was unreasonable.",
+
+    opposition:
+      "The MEC's answer had to be evidence demonstrating that the same necessary treatment could reasonably be obtained through the public healthcare system for no cost or a lower amount."
+  },
+
+
+  rebutBurden: {
+
+    title:
+      "Evidentiary Burden on the MEC",
+
+    meaning:
+      "Once the appellant established a prima facie case for reasonable and necessary future medical expenses, the MEC had an evidentiary burden to rebut that case if relying on the public healthcare defence.",
+
+    application:
+      "The SCA found that the MEC presented no evidence capable of countering Professor Bizos's evidence about the limitations of State hospitals for a patient with a complex clinical condition requiring direct and immediate access to specialist surgeons.",
+
+    question:
+      "What was the decisive evidentiary failure by the MEC?",
+
+    submission:
+      "The MEC did not establish that medical services of the same or an acceptably high standard would be available at no cost or for less than the amount claimed.",
+
+    opposition:
+      "The MEC could have succeeded had it produced sufficiently cogent evidence establishing the actual availability, standard and cost of equivalent State treatment."
+  }
+
+};
+
+
+/* ==================================================
+   OPEN COMMENTARY
+================================================== */
+
+function openCommentary(key) {
+
+  const item = commentary[key];
+
+  if (!item) {
+    return;
+  }
+
+  document.getElementById("commentaryTitle").innerText =
+    item.title;
+
+  document.getElementById("commentaryMeaning").innerText =
+    item.meaning;
+
+  document.getElementById("commentaryApplication").innerText =
+    item.application;
+
+  document.getElementById("commentaryQuestion").innerText =
+    item.question;
+
+  document.getElementById("commentarySubmission").innerText =
+    item.submission;
+
+  document.getElementById("commentaryOpposition").innerText =
+    item.opposition;
+
+  document.getElementById("commentary-popover").style.display =
+    "block";
+}
+
+
+/* ==================================================
+   CLOSE COMMENTARY
+================================================== */
+
+function closeCommentary() {
+
+  document.getElementById("commentary-popover").style.display =
+    "none";
+
+}
+
+
+/* ==================================================
+   ADVOCACY RECORDER
+================================================== */
+
+let mediaRecorder;
+
+let recordedChunks = [];
+
+let recordedBlob = null;
+
+
+/* START */
+
+async function startRecording() {
+
+  try {
+
+    const stream =
+      await navigator.mediaDevices.getUserMedia({
+        audio: true
+      });
+
+    recordedChunks = [];
+
+    mediaRecorder =
+      new MediaRecorder(stream);
+
+    mediaRecorder.ondataavailable =
+      function(event) {
+
+        if (event.data.size > 0) {
+          recordedChunks.push(event.data);
+        }
+
+      };
+
+    mediaRecorder.onstop =
+      function() {
+
+        recordedBlob =
+          new Blob(
+            recordedChunks,
+            { type: "audio/webm" }
+          );
+
+        const audioURL =
+          URL.createObjectURL(recordedBlob);
+
+        document.getElementById(
+          "recordedAudio"
+        ).src = audioURL;
+
+        document.getElementById(
+          "recordingStatus"
+        ).innerText =
+          "Recording ready.";
+
+      };
+
+    mediaRecorder.start();
+
+    document.getElementById(
+      "recordingStatus"
+    ).innerText =
+      "Recording...";
+
+  }
+
+  catch (error) {
+
+    document.getElementById(
+      "recordingStatus"
+    ).innerText =
+      "Microphone access was not available.";
+
+  }
+
+}
+
+
+/* STOP */
+
+function stopRecording() {
+
+  if (
+    mediaRecorder &&
+    mediaRecorder.state !== "inactive"
+  ) {
+
+    mediaRecorder.stop();
+
+    mediaRecorder.stream
+      .getTracks()
+      .forEach(
+        track => track.stop()
+      );
+
+  }
+
+}
+
+
+/* PLAY */
+
+function playRecording() {
+
+  const audio =
+    document.getElementById(
+      "recordedAudio"
+    );
+
+  if (audio.src) {
+    audio.play();
+  }
+
+}
+
+
+/* CLEAR */
+
+function clearRecording() {
+
+  const audio =
+    document.getElementById(
+      "recordedAudio"
+    );
+
+  audio.pause();
+
+  audio.removeAttribute("src");
+
+  audio.load();
+
+  recordedBlob = null;
+
+  recordedChunks = [];
+
+  document.getElementById(
+    "recordingStatus"
+  ).innerText =
+    "Recording cleared.";
+
+}
+
+</script>
+
+</body>
+
+</html>
+```

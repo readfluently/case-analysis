@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grove v Road Accident Fund | Fluently</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Georgia, "Times New Roman", serif;
+    background:#f4f1ea;
+    color:#292722;
+    line-height:1.72;
+}
+
+header{
+    background:#171717;
+    color:white;
+    padding:30px 20px;
+    border-bottom:4px solid #8b6f47;
+}
+
+.header-inner{
+    max-width:1150px;
+    margin:auto;
+}
+
+.brand{
+    font-family:Arial, sans-serif;
+    font-size:13px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:#c9b08a;
+    margin-bottom:12px;
+}
+
+h1{
+    margin:0;
+    font-size:34px;
+    font-weight:normal;
+}
+
+.subtitle{
+    margin-top:8px;
+    color:#d7d2c9;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+}
+
+.back{
+    display:inline-block;
+    margin-top:20px;
+    color:#d9c09a;
+    text-decoration:none;
+    font-family:Arial, sans-serif;
+    font-size:13px;
+}
+
+.back:hover{
+    color:white;
+}
+
+.container{
+    max-width:1150px;
+    margin:35px auto;
+    padding:0 20px;
+}
+
+.case-card{
+    background:white;
+    border:1px solid #ddd6ca;
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
+    padding:35px;
+}
+
+.case-meta{
+    background:#f7f3ec;
+    border-left:4px solid #8b6f47;
+    padding:18px 22px;
+    margin-bottom:30px;
+    font-family:Arial, sans-serif;
+    font-size:14px;
+}
+
+.case-meta strong{
+    color:#5d4930;
+}
+
+.judgment-title{
+    font-size:26px;
+    color:#4c3b28;
+    margin-bottom:8px;
+}
+
+.section-title{
+    font-family:Arial, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    font-size:13px;
+    color:#806544;
+    border-bottom:1px solid #ddd6ca;
+    padding-bottom:10px;
+    margin-top:40px;
+}
+
+.para{
+    margin:20px 0;
+}
+
+.para-number{
+    font-weight:bold;
+    color:#675033;
+}
+
+.principle{
+    color:#6d3fa0;
+    cursor:pointer;
+    border-bottom:1px dotted #6d3fa0;
+    font-weight:bold;
+}
+
+.principle:hover{
+    color:#4c2478;
+    background:#f1eafa;
+}
+
+.popover{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    width:min(520px, calc(100vw - 30px));
+    max-height:80vh;
+    overflow:auto;
+    background:#fff;
+    border:1px solid #cfc4d9;
+    box-shadow:0 15px 45px rgba(0,0,0,.22);
+    padding:25px;
+    border-radius:4px;
+}
+
+.popover h3{
+    margin-top:0;
+    color:#5d327f;
+    font-family:Arial, sans-serif;
+}
+
+.popover p{
+    font-size:15px;
+}
+
+.close-pop{
+    float:right;
+    cursor:pointer;
+    font-family:Arial,sans-serif;
+    color:#777;
+    font-size:20px;
+}
+
+.analysis{
+    margin-top:45px;
+    background:#faf8f4;
+    border:1px solid #ddd6ca;
+    padding:28px;
+}
+
+.analysis h2{
+    margin-top:0;
+    color:#4c3b28;
+}
+
+.issue{
+    background:white;
+    border:1px solid #ded8cf;
+    padding:22px;
+    margin:20px 0;
+}
+
+.issue h3{
+    margin-top:0;
+    color:#5e3b78;
+}
+
+.issue p{
+    margin-bottom:10px;
+}
+
+.question{
+    background:#f1ede6;
+    border-left:4px solid #8b6f47;
+    padding:18px 20px;
+    margin-top:18px;
+}
+
+.submission{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:18px;
+}
+
+.sub-box{
+    padding:20px;
+    border:1px solid #ddd6ca;
+    background:#fff;
+}
+
+.sub-box h4{
+    margin-top:0;
+    font-family:Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-size:12px;
+}
+
+.for{
+    border-top:4px solid #61745a;
+}
+
+.against{
+    border-top:4px solid #765b5b;
+}
+
+.advocacy{
+    margin-top:40px;
+    background:#1b1b1b;
+    color:#eee;
+    padding:30px;
+}
+
+.advocacy h2{
+    margin-top:0;
+    color:#d9c09a;
+}
+
+.advocacy p{
+    color:#c9c5bd;
+}
+
+.controls{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+}
+
+button{
+    border:none;
+    padding:11px 17px;
+    cursor:pointer;
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    border-radius:3px;
+}
+
+.record{
+    background:#8b3d3d;
+    color:white;
+}
+
+.stop{
+    background:#555;
+    color:white;
+}
+
+.play{
+    background:#806544;
+    color:white;
+}
+
+.clear{
+    background:#333;
+    color:white;
+}
+
+button:hover{
+    opacity:.86;
+}
+
+.status{
+    margin-top:15px;
+    font-family:Arial,sans-serif;
+    font-size:13px;
+    color:#bbb;
+}
+
+footer{
+    text-align:center;
+    padding:35px 20px;
+    color:#777;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+}
+
+@media(max-width:700px){
+    .case-card{
+        padding:20px;
+    }
+
+    h1{
+        font-size:27px;
+    }
+
+    .submission{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="brand">Fluently · RAF Causation</div>
+
+```
+    <h1>J M Grove v The Road Accident Fund</h1>
+
+    <div class="subtitle">
+        Case no 74/10 · [2011] ZASC 55 · 31 March 2011
+    </div>
+
+    <a class="back" href="../index.html">← Back to RAF Causation</a>
+</div>
+```
+
+</header>
+
+<div class="container">
+
+<div class="case-card">
+
+<div class="case-meta">
+    <strong>Supreme Court of Appeal of South Africa</strong><br>
+    Case no: 74/10<br>
+    Neutral citation: <strong>JM Grove v The Road Accident Fund (74/10) [2011] ZASC 55 (31 March 2011)</strong><br>
+    Coram: Nugent and Tshiqi JJA and Plasket AJA<br>
+    Heard: 4 March 2011<br>
+    Delivered: 31 March 2011<br>
+    Summary: Causation – Section 17(1) of the Road Accident Fund Act 56 of 1996 – No causal nexus established.
+</div>
+
+<div class="judgment-title">
+    JUDGMENT
+</div>
+
+<p><strong>TSHIQI JA (NUGENT JA and PLASKET AJA concurring)</strong></p>
+
+<p class="para">
+<span class="para-number">[1]</span>
+On 4 November 2005 an accident occurred at the corner of Duncan Street and Duxbury Road, in the vicinity of Brooklyn and Hatfield, Pretoria. The accident occurred after the second respondent (Koopman) lost control of his motor vehicle, a red Audi. It left the road and collided with a wall on the eastern side of the road. The appellant, who was a front seat passenger in the Audi, suffered serious bodily injuries as a result of the accident.
+</p>
+
+<p class="para">
+<span class="para-number">[2]</span>
+Koopman and the appellant were travelling from a night club in Brooklyn. They left the club together with Koopman’s friend and flatmate, Christiaan Potgieter (Potgieter) who was driving his own vehicle, a 1990 Volkswagen Jetta.
+</p>
+
+<p class="para">
+<span class="para-number">[3]</span>
+Both Koopman and Potgieter drove at a high speed. Two tow-truck drivers who were seated in their trucks in the vicinity took the view that the motor vehicles were racing with each other because of their speed, the roar of the engines and the fact that the motor vehicles were driving very close to each other. According to their observation Koopman lost control after the motor vehicles had crossed Duxbury Road, after which the vehicle left the road and collided with the wall. After this, so they stated, Potgieter stopped, reversed and parked next to a bus stop close to the scene of the accident. Potgieter alighted and approached the Audi. The appellant was found inside the Audi having sustained serious injuries.
+</p>
+
+<p class="para">
+<span class="para-number">[4]</span>
+The appellant lodged a claim with the Road Accident Fund (RAF) and subsequently instituted action in the North Gauteng High Court against the RAF for damages arising out of the injuries sustained in the accident. She alleged that the accident had been caused by the negligence of Potgieter, who was alleged to have enticed Koopman to engage in racing their vehicles. In the alternative, it was alleged that the accident had been caused by their joint negligence, alternatively by the negligence of Koopman alone. The RAF admitted that the negligence of Koopman had caused the accident but denied the remaining allegations. It thus pleaded that its liability was limited under s 18(1)(b) of the Road Accident Fund Act 56 of 1996 (the RAF Act) to R25 000 plus hospital and medical expenses. This was not accepted by the appellant and the action proceeded on the question of the alleged causal negligence of Potgieter. It was alleged that the collision was caused by or arose from the negligent and wrongful driving of Potgieter, ie dicing, particularly as contemplated in s 17(1) the RAF Act.
+</p>
+
+<p class="para">
+<span class="para-number">[5]</span>
+An agreement between the parties, in terms of rule 33(4) of the Uniform Rules, to separate merits from quantum was made an order of the court. The court below (per Ledwaba J) dismissed the action on the merits with costs. This appeal is brought with his leave.
+</p>
+
+<p class="para">
+<span class="para-number">[6]</span>
+It was conceded, when the appeal was argued before us, and it seems also in the court below, that the two motor vehicles were driving at a high speed at the time of the accident. Because driving at a high speed in that area was in itself unlawful conduct and amounted to negligence, it seems to me that the pertinent issue of causation can easily be determined without engaging in an exercise to determine whether Potgieter and Koopman were indeed involved in dicing, but I will assume for present purposes that they were.
+</p>
+
+<p class="para">
+<span class="para-number">[7]</span>
+The RAF is obliged to compensate for damages arising from bodily injury
+<span class="principle" onclick="showPrinciple('p7')">‘caused by or arising from’ the driving of a motor vehicle.</span>
+The causal link that is required is essentially the same as the causal link that is required for Aquilian liability. There can be no question of liability if it is not proved that the wrongdoer caused the damage of the person suffering the harm. Whether an act can be identified as a cause, depends on a conclusion drawn from available facts and relevant probabilities. The important question is how one should determine a causal nexus, namely whether one fact follows from another.
+</p>
+
+<p class="para">
+<span class="para-number">[8]</span>
+In most cases there is no problem in determining in one way or another whether or not the conduct of the wrongdoer has caused harm to the plaintiff. The courts usually achieve this by simply adopting what is usually termed the
+<span class="principle" onclick="showPrinciple('p8')">‘but-for’ test or the sine qua non approach</span>
+which entails an enquiry whether the harm would have occurred but for the wrongdoer’s conduct. If it would not have occurred, then the wrongdoer’s conduct is not a sine qua non of the harm.
+</p>
+
+<p class="para">
+<span class="para-number">[9]</span>
+The problem with the ‘but-for’ test is that it does not always provide the right answers to causal problems. One of its major flaws is that if it is used,
+<span class="principle" onclick="showPrinciple('p9')">almost anything is a cause</span>.
+It fails to take into account that some consequences of a person’s conduct will inevitably be too remote to create liability.
+</p>
+
+<p class="para">
+<span class="para-number">[10]</span>
+It would be unjust to hold a wrongdoer liable without some limitation for the endless chain of harmful consequences which his act may have caused. It follows that
+<span class="principle" onclick="showPrinciple('p10')">some means must be found to limit the wrongdoer’s liability.</span>
+</p>
+
+<p class="para">
+<span class="para-number">[11]</span>
+Whether the wrongdoer should be liable for the consequences of his wrongful conduct entails an enquiry into
+<span class="principle" onclick="showPrinciple('p11')">whether the link between the act or omission and the harm is sufficiently close or direct for legal liability to ensue</span>,
+or whether the harm is, as it is said ‘too remote’. This enquiry is concerned with a juridical problem in which considerations of legal policy may play a part.
+</p>
+
+<p class="para">
+<span class="para-number">[12]</span>
+Courts have in the past grappled with choosing a criterion to be applied to determine legal causation. In S v Mokgethi & others, Van Heerden JA held that there is no single and general criterion for legal causation which is applicable in all instances. He suggested a flexible approach where the court has the freedom in each case to apply a theory which serves reasonableness and justice, in light of the circumstances, taking into account considerations of policy. The basic question is whether there is a
+<span class="principle" onclick="showPrinciple('p12')">close enough relationship between the wrongdoer’s conduct and its consequence</span>
+for such consequence to be imputed to the wrongdoer in view of policy considerations based on reasonableness, fairness and justice.
+</p>
+
+<p class="para">
+<span class="para-number">[13]</span>
+A useful guide is found in Wells & another v Shield Insurance Co Ltd & others where Corbett CJ stated:
+</p>
+
+<blockquote>
+‘In searching for some limit lying between direct causation and the vast and unrestricted field of the causa sine qua non, the Court must, I think, be guided by a consideration of the object and scope of the Act and by notions of common sense. . . . 
+<br><br>
+The death or bodily injury for which compensation is claimed must be causally related to this negligent or otherwise unlawful act and also to the driving of the vehicle. Where the direct cause from the point of culpability is the same act or omission on the part of the driver in the actual driving of the vehicle then it would generally be found that the death or injury was “caused by” the driving. Where the direct cause is some antecedent or ancillary act, then it could not normally be said that the death or injury was '”caused by” the driving; but it might be found to arise out of the driving. Whether this would be found would depend upon the particular facts of the case and whether, applying ordinary, common-sense standards, it could be said that the causal connection between the death or injury and the driving was sufficiently real and close to enable the Court to say that the death or injury did arise out of the driving. I do not think that it is either possible or advisable to state the position more precisely than this, save to emphasise that, generally speaking, the mere fact that the motor vehicle in question was being driven at the time death was caused or the injury inflicted or that it had been driven shortly prior to this would not, of itself, provide sufficient causal connection.’
+</blockquote>
+
+<p class="para">
+<span class="para-number">[14]</span>
+It is also helpful to refer to the case of Grobler v Santam Versekering Bpk. In that case the driver of a motor vehicle had been involved in an accident with a horse. He failed to ensure that the dead horse was removed from the road. Another vehicle, in which the plaintiff was a passenger, collided with the dead horse half an hour later. The court found that there was a causal nexus between the negligence of a driver who had failed to remove the dead horse from the road and the accident which occurred half an hour later. The court reasoned that without the driving of the vehicle in the earlier accident, the horse would not have been lying on the road. It concluded that the driving of the insured vehicle was accordingly a sine qua non for the presence of the horse on the road.
+</p>
+
+<p class="para">
+<span class="para-number">[15]</span>
+The essence of the distinction between Grobler v Santam and the present matter is that in Grobler v Santam it was the negligence of the driver of the vehicle involved in the earlier accident, in failing to remove the dead horse that caused the accident. There was therefore, in that matter, a causal nexus between the negligent driving and the accident. In this matter on the other hand, it was uncontroverted that other than the negligent manner in which the two vehicles were being driven, there was no other basis on which Potgieter was said to be connected with the accident. Although the Jetta was being driven at a high speed, it did not cause anything that could be held to have caused Koopman to loose control and collide with the wall.
+</p>
+
+<p class="para">
+<span class="para-number">[16]</span>
+The pertinent question whether the negligent driving by Potgieter, can in itself without any other factor be held to have caused the accident, must therefore be answered in the negative. The cause of the accident was the fact that Koopman himself, with no further conduct from Potgieter, lost control of the Audi before it left the road and hit the wall. There was therefore
+<span class="principle" onclick="showPrinciple('p16')">no causal nexus between the driving by Potgieter and the accident.</span>
+</p>
+
+<p class="para">
+<span class="para-number">[17]</span>
+The appeal must accordingly fail.
+</p>
+
+<p class="para">
+<span class="para-number">[18]</span>
+I make the following order:
+</p>
+
+<blockquote>
+The appeal is dismissed with costs.
+</blockquote>
+
+<div class="section-title">Order</div>
+
+<p>
+On appeal from: North Gauteng High Court, Pretoria (Ledwaba J sitting as court of first instance):
+</p>
+
+<p>
+The appeal is dismissed with costs.
+</p>
+
+<div class="section-title">Appearances</div>
+
+<p>
+<strong>APPELLANT:</strong><br>
+WP de Waal SC<br>
+Instructed by Adams &amp; Adams, Pretoria<br>
+Naudes Attorneys, Bloemfontein.
+</p>
+
+<p>
+<strong>RESPONDENTS:</strong><br>
+I Lingenfelder<br>
+Instructed by Dyanson Inc, Pretoria<br>
+McIntyre &amp; Van der Post, Bloemfontein.
+</p>
+
+<div class="analysis">
+
+<h2>Fluently Legal Analysis</h2>
+
+<p>
+This case is particularly important for RAF causation because it separates the existence of negligence from the separate requirement that the negligent conduct must have a sufficient causal relationship with the injury.
+</p>
+
+<div class="issue">
+
+<h3>1. What is the RAF causal requirement?</h3>
+
+<p>
+Paragraph [7] identifies the statutory phrase “caused by or arising from” the driving of a motor vehicle and explains that the causal link is essentially the same as the causal link required for Aquilian liability.
+</p>
+
+<p>
+The court therefore treats causation as an independent enquiry. Establishing that conduct was negligent does not, by itself, establish that the conduct caused the harm.
+</p>
+
+<div class="question">
+<strong>Question for the practitioner:</strong><br>
+What specific factual event connects the defendant's negligent conduct to the injury suffered by the plaintiff?
+</div>
+
+<div class="submission">
+
+<div class="sub-box for">
+<h4>Possible submission for the claimant</h4>
+<p>
+The claimant may argue that the surrounding circumstances, including the high-speed driving and alleged racing between the vehicles, establish a sufficiently close causal connection between Potgieter's driving and the collision.
+</p>
+</div>
+
+<div class="sub-box against">
+<h4>Possible submission for the RAF</h4>
+<p>
+The RAF may submit that Potgieter's negligent driving did not cause any event that resulted in Koopman's loss of control. The mere fact that Potgieter was driving negligently at the same time and in the same vicinity is insufficient.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="issue">
+
+<h3>2. The but-for test</h3>
+
+<p>
+Paragraph [8] explains the ordinary <strong>but-for</strong> or <strong>sine qua non</strong> enquiry: would the harm have occurred but for the wrongdoer's conduct?
+</p>
+
+<p>
+The case is especially useful because paragraph [9] immediately identifies the limitation of treating the but-for enquiry as the complete answer to causation.
+</p>
+
+<div class="question">
+<strong>Advocacy question:</strong><br>
+If Potgieter had not driven his Jetta at high speed, would the accident nevertheless have occurred because Koopman independently lost control of the Audi?
+</div>
+
+<div class="submission">
+
+<div class="sub-box for">
+<h4>Claimant's approach</h4>
+<p>
+The claimant would need to identify a factual connection between Potgieter's conduct and the collision rather than relying merely on the simultaneous presence of negligent driving.
+</p>
+</div>
+
+<div class="sub-box against">
+<h4>RAF's approach</h4>
+<p>
+The RAF can emphasise that the evidence established that Koopman lost control of the Audi, while Potgieter's Jetta did not cause anything that brought about that loss of control.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="issue">
+
+<h3>3. Legal causation and remoteness</h3>
+
+<p>
+Paragraphs [9]–[12] explain why factual causation alone does not automatically produce legal liability. The court requires a limitation on liability so that a wrongdoer is not held responsible for an endless chain of consequences.
+</p>
+
+<p>
+The relevant enquiry is whether the connection is sufficiently close or direct for legal liability to follow. The court refers to reasonableness, fairness and justice as relevant policy considerations.
+</p>
+
+<div class="question">
+<strong>Advocacy question:</strong><br>
+Even if Potgieter's conduct could be described as part of the surrounding circumstances, was the relationship between that conduct and the collision sufficiently close for liability to follow?
+</div>
+
+</div>
+
+<div class="issue">
+
+<h3>4. The Wells guide</h3>
+
+<p>
+Paragraph [13] provides an important practical guide: ordinary common-sense standards are relevant when deciding whether the causal connection between the injury and the driving is sufficiently real and close.
+</p>
+
+<p>
+The court distinguishes between an injury directly caused by the driver's conduct and an injury where the alleged causal connection arises from some antecedent or ancillary act.
+</p>
+
+<div class="question">
+<strong>Advocacy question:</strong><br>
+Can you identify the direct causal act in the facts of Grove, and can you identify the conduct that was merely part of the surrounding circumstances?
+</div>
+
+</div>
+
+<div class="issue">
+
+<h3>5. Grove v Santam compared with Grove</h3>
+
+<p>
+Paragraphs [14]–[15] are important because the court does not reject the but-for enquiry. Instead, it demonstrates why the factual connection must actually exist.
+</p>
+
+<p>
+In Grobler v Santam, the earlier negligent driving resulted in the dead horse remaining on the road, and that condition subsequently caused the later accident.
+</p>
+
+<p>
+In Grove, Potgieter's Jetta did not cause anything that caused Koopman to lose control.
+</p>
+
+<div class="question">
+<strong>Advocacy question:</strong><br>
+What is the missing causal step between Potgieter's negligent driving and the collision?
+</div>
+
+</div>
+
+<div class="issue">
+
+<h3>6. The decisive finding</h3>
+
+<p>
+Paragraph [16] contains the decisive application of the causation principles to the facts. The court held that the negligent driving by Potgieter, without some further causal factor, could not be held to have caused the accident.
+</p>
+
+<p>
+The accident was caused by Koopman losing control of the Audi. Consequently, there was no causal nexus between Potgieter's driving and the accident.
+</p>
+
+<div class="question">
+<strong>Final advocacy question:</strong><br>
+If you were arguing the appeal, what precise evidence would you need to establish in order to bridge the causal gap identified by the court?
+</div>
+
+<div class="submission">
+
+<div class="sub-box for">
+<h4>Submission for appellant</h4>
+<p>
+The appellant must identify evidence showing that Potgieter's conduct was causally operative in producing Koopman's loss of control or the collision itself, rather than merely showing that Potgieter was driving negligently.
+</p>
+</div>
+
+<div class="sub-box against">
+<h4>Submission for RAF</h4>
+<p>
+The RAF can submit that negligence and causation are separate enquiries and that the evidence did not establish that Potgieter's driving produced the event that caused the injuries.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="advocacy">
+
+<h2>Advocacy Practice</h2>
+
+<p>
+Use the controls below to practise presenting the causation argument aloud. You can record your submission, stop it, listen to it and clear the recording before trying again.
+</p>
+
+<div class="controls">
+    <button class="record" onclick="startRecording()">● Record</button>
+    <button class="stop" onclick="stopRecording()">■ Stop</button>
+    <button class="play" onclick="playRecording()">▶ Play</button>
+    <button class="clear" onclick="clearRecording()">✕ Clear</button>
+</div>
+
+<div class="status" id="recordStatus">
+    Recorder ready.
+</div>
+
+<audio id="audioPlayback" controls style="display:none; margin-top:20px; width:100%;"></audio>
+
+</div>
+
+</div>
+</div>
+
+<footer>
+    Fluently · South African Legal Case Analysis
+</footer>
+
+<div id="popover" class="popover">
+    <span class="close-pop" onclick="closePrinciple()">×</span>
+    <div id="popoverContent"></div>
+</div>
+
+<script>
+
+const principles = {
+
+p7: {
+    title: "Causal nexus under section 17(1)",
+    text: "The RAF obligation concerns bodily injury caused by or arising from the driving of a motor vehicle. The court states that the causal link required is essentially the same as the causal link required for Aquilian liability. Liability cannot arise unless the wrongdoer caused the damage."
+},
+
+p8: {
+    title: "The but-for test / sine qua non",
+    text: "The ordinary factual causation enquiry asks whether the harm would have occurred but for the wrongdoer's conduct. If the harm would have occurred regardless, that conduct is not a sine qua non of the harm."
+},
+
+p9: {
+    title: "The limitation of the but-for test",
+    text: "The court explains that the but-for test does not always provide the correct answer because, if applied without limitation, almost anything may become a cause. Some consequences are too remote to create legal liability."
+},
+
+p10: {
+    title: "Limiting liability",
+    text: "The law cannot impose liability for an endless chain of consequences. A means of limiting the wrongdoer's liability is therefore necessary."
+},
+
+p11: {
+    title: "Sufficiently close or direct connection",
+    text: "The legal causation enquiry asks whether the connection between the wrongful act or omission and the harm is sufficiently close or direct for legal liability to follow, rather than being too remote."
+},
+
+p12: {
+    title: "Flexible approach to legal causation",
+    text: "The court refers to S v Mokgethi and explains that there is no single general criterion applicable in every case. A flexible approach allows the court to consider reasonableness, fairness, justice and policy when determining whether the consequence should be imputed to the wrongdoer."
+},
+
+p16: {
+    title: "No causal nexus",
+    text: "The decisive finding was that Potgieter's negligent driving, without another causal factor, did not cause the accident. Koopman himself lost control of the Audi, and there was therefore no causal nexus between Potgieter's driving and the accident."
+}
+
+};
+
+function showPrinciple(id){
+
+    const p = principles[id];
+
+    document.getElementById("popoverContent").innerHTML =
+        "<h3>" + p.title + "</h3>" +
+        "<p>" + p.text + "</p>";
+
+    const pop = document.getElementById("popover");
+
+    pop.style.display = "block";
+
+    const width = Math.min(520, window.innerWidth - 30);
+
+    pop.style.width = width + "px";
+
+    pop.style.left = ((window.innerWidth - width) / 2) + "px";
+    pop.style.top = "10%";
+}
+
+function closePrinciple(){
+    document.getElementById("popover").style.display = "none";
+}
+
+window.onclick = function(event){
+    const pop = document.getElementById("popover");
+
+    if(event.target === pop){
+        closePrinciple();
+    }
+};
+
+
+/* ADVOCACY RECORDER */
+
+let mediaRecorder;
+let audioChunks = [];
+let audioBlob = null;
+
+async function startRecording(){
+
+    try{
+
+        const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+
+        audioChunks = [];
+
+        mediaRecorder = new MediaRecorder(stream);
+
+        mediaRecorder.ondataavailable = function(event){
+
+            if(event.data.size > 0){
+                audioChunks.push(event.data);
+            }
+
+        };
+
+        mediaRecorder.onstop = function(){
+
+            audioBlob = new Blob(audioChunks, {type:"audio/webm"});
+
+            const audioURL = URL.createObjectURL(audioBlob);
+
+            const player = document.getElementById("audioPlayback");
+
+            player.src = audioURL;
+            player.style.display = "block";
+
+            stream.getTracks().forEach(track => track.stop());
+
+        };
+
+        mediaRecorder.start();
+
+        document.getElementById("recordStatus").textContent =
+            "Recording… present your causation argument.";
+
+    }catch(error){
+
+        document.getElementById("recordStatus").textContent =
+            "Microphone access was not available. Please allow microphone access in your browser.";
+
+    }
+
+}
+
+function stopRecording(){
+
+    if(mediaRecorder && mediaRecorder.state !== "inactive"){
+
+        mediaRecorder.stop();
+
+        document.getElementById("recordStatus").textContent =
+            "Recording stopped. Press Play to review your advocacy.";
+
+    }
+
+}
+
+function playRecording(){
+
+    const player = document.getElementById("audioPlayback");
+
+    if(player.src){
+
+        player.play();
+
+    }
+
+}
+
+function clearRecording(){
+
+    const player = document.getElementById("audioPlayback");
+
+    player.pause();
+
+    player.removeAttribute("src");
+
+    player.style.display = "none";
+
+    audioBlob = null;
+    audioChunks = [];
+
+    document.getElementById("recordStatus").textContent =
+        "Recording cleared. Recorder ready.";
+
+}
+
+</script>
+
+</body>
+</html>

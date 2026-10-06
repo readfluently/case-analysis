@@ -1,0 +1,675 @@
+```html
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>RAF Causation | Fluently Case Analysis</title>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      color: #24303a;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f4f1eb 0%,
+          #e8e3da 50%,
+          #f7f5f0 100%
+        );
+    }
+
+
+    header {
+      padding: 52px 20px 44px;
+
+      text-align: center;
+
+      color: #f8f5ef;
+
+      background:
+        linear-gradient(
+          135deg,
+          #18242d,
+          #263945
+        );
+
+      border-bottom:
+        4px solid #b89b5e;
+
+      box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.18);
+    }
+
+
+    header a {
+      color: #d8c69a;
+
+      text-decoration: none;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+
+    header a:hover {
+      color: #ffffff;
+    }
+
+
+    header h1 {
+      margin: 18px 0 8px;
+
+      font-size: 42px;
+      font-weight: 600;
+    }
+
+
+    header p {
+      margin: 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 12px;
+      letter-spacing: 3px;
+
+      color: #d8c69a;
+    }
+
+
+    main {
+      width: min(1100px, 92%);
+
+      margin:
+        50px auto 70px;
+    }
+
+
+    .intro {
+      padding: 40px 35px;
+
+      text-align: center;
+
+      background:
+        rgba(255, 255, 255, 0.74);
+
+      border:
+        1px solid rgba(120, 105, 80, 0.22);
+
+      border-radius: 6px;
+
+      box-shadow:
+        0 12px 30px rgba(45, 40, 30, 0.10);
+    }
+
+
+    .intro-label {
+      margin: 0 0 14px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      color: #9a7b3f;
+    }
+
+
+    .intro h2 {
+      margin: 0 0 16px;
+
+      font-size: 32px;
+      font-weight: 600;
+
+      color: #24333d;
+    }
+
+
+    .intro-text {
+      max-width: 760px;
+
+      margin: 0 auto;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 15px;
+      line-height: 1.7;
+
+      color: #5b646b;
+    }
+
+
+    .topics {
+      margin-top: 48px;
+    }
+
+
+    .topics-heading {
+      margin: 0 0 28px;
+
+      text-align: center;
+
+      font-size: 27px;
+      font-weight: 600;
+
+      color: #24333d;
+    }
+
+
+    .topics-heading::after {
+      content: "";
+
+      display: block;
+
+      width: 55px;
+      height: 2px;
+
+      margin: 14px auto 0;
+
+      background: #b89b5e;
+    }
+
+
+    .topic-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 22px;
+    }
+
+
+    .topic-card {
+      position: relative;
+
+      display: flex;
+
+      flex-direction: column;
+      justify-content: space-between;
+
+      min-height: 205px;
+
+      padding: 28px 27px;
+
+      text-decoration: none;
+
+      color: #273640;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.96),
+          rgba(239, 235, 227, 0.92)
+        );
+
+      border:
+        1px solid rgba(110, 95, 70, 0.25);
+
+      border-top:
+        5px solid #b89b5e;
+
+      border-radius: 5px;
+
+      box-shadow:
+        0 7px 18px rgba(45, 40, 30, 0.09);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-top-color 0.2s ease;
+    }
+
+
+    .topic-card:hover {
+      transform:
+        translateY(-6px);
+
+      border-top-color: #8d6e32;
+
+      box-shadow:
+        0 14px 28px rgba(45, 40, 30, 0.16);
+    }
+
+
+    .topic-card:focus {
+      outline:
+        3px solid rgba(184, 155, 94, 0.35);
+
+      outline-offset: 3px;
+    }
+
+
+    .topic-number {
+      margin-bottom: 13px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      color: #9a7b3f;
+    }
+
+
+    .topic-title {
+      margin-bottom: 13px;
+
+      font-size: 23px;
+      line-height: 1.25;
+
+      color: #263640;
+    }
+
+
+    .topic-description {
+      margin: 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 14px;
+      line-height: 1.6;
+
+      color: #646b70;
+    }
+
+
+    .topic-arrow {
+      align-self: flex-end;
+
+      margin-top: 22px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 24px;
+
+      color: #b89b5e;
+
+      transition:
+        transform 0.2s ease;
+    }
+
+
+    .topic-card:hover .topic-arrow {
+      transform:
+        translateX(5px);
+    }
+
+
+    .back-links {
+      display: flex;
+
+      justify-content: center;
+
+      gap: 25px;
+
+      margin-top: 40px;
+    }
+
+
+    .back-links a {
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 13px;
+
+      color: #7d6638;
+
+      text-decoration: none;
+    }
+
+
+    .back-links a:hover {
+      text-decoration: underline;
+    }
+
+
+    footer {
+      padding: 28px 20px 35px;
+
+      text-align: center;
+
+      border-top:
+        1px solid rgba(100, 90, 75, 0.18);
+
+      background:
+        rgba(255, 255, 255, 0.45);
+    }
+
+
+    footer p {
+      margin: 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 12px;
+
+      letter-spacing: 1.5px;
+
+      color: #77736c;
+    }
+
+
+    @media (max-width: 750px) {
+
+      .topic-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .topic-card {
+        min-height: 185px;
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      header {
+        padding:
+          40px 20px 35px;
+      }
+
+
+      header h1 {
+        font-size: 34px;
+      }
+
+
+      main {
+        width: 92%;
+
+        margin-top: 35px;
+        margin-bottom: 50px;
+      }
+
+
+      .intro {
+        padding:
+          30px 22px;
+      }
+
+
+      .intro h2 {
+        font-size: 28px;
+      }
+
+
+      .back-links {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 12px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <header>
+
+    <a href="../raf-claims/index.html">
+      ← RAF CLAIMS
+    </a>
+
+    <h1>Causation</h1>
+
+    <p>
+      ROAD ACCIDENT FUND • CAUSAL NEXUS • PROOF
+    </p>
+
+  </header>
+
+
+  <main>
+
+
+    <section class="intro">
+
+      <p class="intro-label">
+        RAF CLAIMS • SECTION 02
+      </p>
+
+      <h2>
+        Causation
+      </h2>
+
+      <p class="intro-text">
+        Examine the causal connection between the
+        motor vehicle accident, the injuries sustained
+        and the loss claimed. The analysis distinguishes
+        factual causation from legal causation and
+        identifies the evidence required to establish
+        that connection.
+      </p>
+
+    </section>
+
+
+    <section class="topics">
+
+      <h2 class="topics-heading">
+        Causation Analysis
+      </h2>
+
+
+      <div class="topic-grid">
+
+
+        <a
+          class="topic-card"
+          href="#"
+        >
+
+          <div>
+
+            <div class="topic-number">
+              PRINCIPLE 01
+            </div>
+
+            <div class="topic-title">
+              Factual Causation
+            </div>
+
+            <p class="topic-description">
+              The factual enquiry: whether the accident
+              and the conduct relied upon were a cause
+              of the injury or loss.
+            </p>
+
+          </div>
+
+          <div class="topic-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          class="topic-card"
+          href="#"
+        >
+
+          <div>
+
+            <div class="topic-number">
+              PRINCIPLE 02
+            </div>
+
+            <div class="topic-title">
+              The But-for Enquiry
+            </div>
+
+            <p class="topic-description">
+              The counterfactual enquiry used to determine
+              whether the harm would have occurred in the
+              absence of the conduct in question.
+            </p>
+
+          </div>
+
+          <div class="topic-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          class="topic-card"
+          href="#"
+        >
+
+          <div>
+
+            <div class="topic-number">
+              PRINCIPLE 03
+            </div>
+
+            <div class="topic-title">
+              Legal Causation
+            </div>
+
+            <p class="topic-description">
+              Whether the connection between the accident
+              and the loss is sufficiently close for legal
+              liability to follow.
+            </p>
+
+          </div>
+
+          <div class="topic-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          class="topic-card"
+          href="#"
+        >
+
+          <div>
+
+            <div class="topic-number">
+              PRINCIPLE 04
+            </div>
+
+            <div class="topic-title">
+              Proof of Injury
+            </div>
+
+            <p class="topic-description">
+              Establishing that the injuries relied upon
+              were actually sustained in the accident and
+              are supported by reliable evidence.
+            </p>
+
+          </div>
+
+          <div class="topic-arrow">
+            →
+          </div>
+
+        </a>
+
+
+      </div>
+
+
+      <div class="back-links">
+
+        <a href="../raf-claims/index.html">
+          ← Back to RAF Claims
+        </a>
+
+        <a href="../index.html">
+          ← Practice Areas
+        </a>
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+  <footer>
+
+    <p>
+      Fluently Case Analysis
+    </p>
+
+  </footer>
+
+
+</body>
+
+</html>
+```

@@ -13,10 +13,407 @@
 
   <title>Fluently Case Analysis</title>
 
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      color: #24303a;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f4f1eb 0%,
+          #e8e3da 50%,
+          #f7f5f0 100%
+        );
+    }
+
+
+    header {
+      padding: 60px 20px 50px;
+
+      text-align: center;
+
+      color: #f8f5ef;
+
+      background:
+        linear-gradient(
+          135deg,
+          #18242d,
+          #263945
+        );
+
+      border-bottom:
+        4px solid #b89b5e;
+
+      box-shadow:
+        0 4px 18px rgba(0, 0, 0, 0.18);
+    }
+
+
+    header h1 {
+      margin: 0;
+
+      font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 8px;
+    }
+
+
+    header p {
+      margin: 12px 0 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 13px;
+      letter-spacing: 4px;
+
+      color: #d8c69a;
+    }
+
+
+    main {
+      width: min(1100px, 92%);
+
+      margin:
+        55px auto 70px;
+    }
+
+
+    .intro {
+      padding: 42px 35px;
+
+      text-align: center;
+
+      background:
+        rgba(255, 255, 255, 0.72);
+
+      border:
+        1px solid rgba(120, 105, 80, 0.22);
+
+      border-radius: 6px;
+
+      box-shadow:
+        0 12px 30px rgba(45, 40, 30, 0.10);
+    }
+
+
+    .intro-label {
+      margin: 0 0 15px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: 3px;
+
+      color: #9a7b3f;
+    }
+
+
+    .intro h2 {
+      margin: 0 0 18px;
+
+      font-size: 34px;
+      font-weight: 600;
+
+      color: #24333d;
+    }
+
+
+    .intro-text {
+      max-width: 700px;
+
+      margin: 0 auto;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 16px;
+      line-height: 1.7;
+
+      color: #5b646b;
+    }
+
+
+    .practice-area {
+      margin-top: 55px;
+    }
+
+
+    .practice-area h2 {
+      margin: 0 0 28px;
+
+      text-align: center;
+
+      font-size: 27px;
+      font-weight: 600;
+
+      color: #24333d;
+    }
+
+
+    .practice-area h2::after {
+      content: "";
+
+      display: block;
+
+      width: 55px;
+      height: 2px;
+
+      margin: 14px auto 0;
+
+      background: #b89b5e;
+    }
+
+
+    .practice-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 22px;
+    }
+
+
+    .practice-card {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: space-between;
+
+      min-height: 125px;
+
+      padding: 25px 28px;
+
+      text-decoration: none;
+
+      color: #273640;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(239, 235, 227, 0.92)
+        );
+
+      border:
+        1px solid rgba(110, 95, 70, 0.25);
+
+      border-left:
+        5px solid #b89b5e;
+
+      border-radius: 5px;
+
+      box-shadow:
+        0 7px 18px rgba(45, 40, 30, 0.09);
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-left-color 0.2s ease;
+    }
+
+
+    .practice-card:hover {
+      transform:
+        translateY(-5px);
+
+      border-left-color: #8d6e32;
+
+      box-shadow:
+        0 14px 28px rgba(45, 40, 30, 0.16);
+    }
+
+
+    .practice-card:focus {
+      outline:
+        3px solid rgba(184, 155, 94, 0.35);
+
+      outline-offset: 3px;
+    }
+
+
+    .card-content {
+      padding-right: 15px;
+    }
+
+
+    .card-number {
+      margin-bottom: 8px;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      color: #9a7b3f;
+    }
+
+
+    .card-title {
+      font-size: 21px;
+      line-height: 1.25;
+
+      color: #263640;
+    }
+
+
+    .card-arrow {
+      flex-shrink: 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 25px;
+
+      color: #b89b5e;
+
+      transition:
+        transform 0.2s ease;
+    }
+
+
+    .practice-card:hover .card-arrow {
+      transform:
+        translateX(5px);
+    }
+
+
+    footer {
+      padding: 28px 20px 35px;
+
+      text-align: center;
+
+      border-top:
+        1px solid rgba(100, 90, 75, 0.18);
+
+      background:
+        rgba(255, 255, 255, 0.45);
+    }
+
+
+    footer p {
+      margin: 0;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 12px;
+
+      letter-spacing: 1.5px;
+
+      color: #77736c;
+    }
+
+
+    @media (max-width: 700px) {
+
+      header {
+        padding: 45px 20px 38px;
+      }
+
+
+      header h1 {
+        font-size: 36px;
+        letter-spacing: 6px;
+      }
+
+
+      header p {
+        font-size: 11px;
+        letter-spacing: 3px;
+      }
+
+
+      main {
+        width: 92%;
+
+        margin-top: 35px;
+        margin-bottom: 50px;
+      }
+
+
+      .intro {
+        padding: 32px 22px;
+      }
+
+
+      .intro h2 {
+        font-size: 29px;
+      }
+
+
+      .intro-text {
+        font-size: 15px;
+      }
+
+
+      .practice-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .practice-card {
+        min-height: 110px;
+
+        padding:
+          22px 23px;
+      }
+
+
+      .card-title {
+        font-size: 19px;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 
 <body>
+
 
   <header>
 
@@ -29,13 +426,18 @@
 
   <main>
 
-    <section>
 
-      <p>LEGAL RESEARCH • ANALYSIS • ADVOCACY</p>
+    <section class="intro">
 
-      <h2>Case Repository</h2>
+      <p class="intro-label">
+        LEGAL RESEARCH • ANALYSIS • ADVOCACY
+      </p>
 
-      <p>
+      <h2>
+        Case Repository
+      </h2>
+
+      <p class="intro-text">
         Explore cases by practice area, legal principle,
         issue, citation and analysis.
       </p>
@@ -43,60 +445,197 @@
     </section>
 
 
-    <section>
+    <section class="practice-area">
 
-      <h2>Practice Areas</h2>
+      <h2>
+        Practice Areas
+      </h2>
 
-      <p>
-        <a href="medical-negligence/index.html">
-          Medical Negligence
+
+      <div class="practice-grid">
+
+
+        <a
+          class="practice-card"
+          href="medical-negligence/index.html"
+        >
+
+          <div class="card-content">
+
+            <div class="card-number">
+              PRACTICE AREA 01
+            </div>
+
+            <div class="card-title">
+              Medical Negligence
+            </div>
+
+          </div>
+
+          <div class="card-arrow">
+            →
+          </div>
+
         </a>
-      </p>
 
-      <p>
-        <a href="labour-law-unfair-dismissal/index.html">
-          Labour Law — Unfair Dismissal
-        </a>
-      </p>
 
-      <p>
-        <a href="rule-53-reviews/index.html">
-          Rule 53 Reviews
-        </a>
-      </p>
+        <a
+          class="practice-card"
+          href="labour-law-unfair-dismissal/index.html"
+        >
 
-      <p>
-        <a href="raf-claims/index.html">
-          RAF Claims
-        </a>
-      </p>
+          <div class="card-content">
 
-      <p>
-        <a href="urgent-applications-interdicts/index.html">
-          Urgent Applications &amp; Interdicts
-        </a>
-      </p>
+            <div class="card-number">
+              PRACTICE AREA 02
+            </div>
 
-      <p>
-        <a href="delictual-claims/index.html">
-          Delictual Claims
-        </a>
-      </p>
+            <div class="card-title">
+              Labour Law — Unfair Dismissal
+            </div>
 
-      <p>
-        <a href="breach-of-contract/index.html">
-          Breach of Contract
+          </div>
+
+          <div class="card-arrow">
+            →
+          </div>
+
         </a>
-      </p>
+
+
+        <a
+          class="practice-card"
+          href="rule-53-reviews/index.html"
+        >
+
+          <div class="card-content">
+
+            <div class="card-number">
+              PRACTICE AREA 03
+            </div>
+
+            <div class="card-title">
+              Rule 53 Reviews
+            </div>
+
+          </div>
+
+          <div class="card-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          class="practice-card"
+          href="raf-claims/index.html"
+        >
+
+          <div class="card-content">
+
+            <div class="card-number">
+              PRACTICE AREA 04
+            </div>
+
+            <div class="card-title">
+              RAF Claims
+            </div>
+
+          </div>
+
+          <div class="card-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          class="practice-card"
+          href="urgent-applications-interdicts/index.html"
+        >
+
+          <div class="card-content">
+
+            <div class="card-number">
+              PRACTICE AREA 05
+            </div>
+
+            <div class="card-title">
+              Urgent Applications &amp; Interdicts
+            </div>
+
+          </div>
+
+          <div class="card-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          class="practice-card"
+          href="delictual-claims/index.html"
+        >
+
+          <div class="card-content">
+
+            <div class="card-number">
+              PRACTICE AREA 06
+            </div>
+
+            <div class="card-title">
+              Delictual Claims
+            </div>
+
+          </div>
+
+          <div class="card-arrow">
+            →
+          </div>
+
+        </a>
+
+
+        <a
+          class="practice-card"
+          href="breach-of-contract/index.html"
+        >
+
+          <div class="card-content">
+
+            <div class="card-number">
+              PRACTICE AREA 07
+            </div>
+
+            <div class="card-title">
+              Breach of Contract
+            </div>
+
+          </div>
+
+          <div class="card-arrow">
+            →
+          </div>
+
+        </a>
+
+
+      </div>
 
     </section>
+
 
   </main>
 
 
   <footer>
 
-    <p>Fluently Case Analysis</p>
+    <p>
+      Fluently Case Analysis
+    </p>
 
   </footer>
 

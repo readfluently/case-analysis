@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Road Accident Fund v Russell — Fluently Case Analysis</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        linear-gradient(
+          135deg,
+          #f4f1eb 0%,
+          #e8e3da 50%,
+          #f7f5f0 100%
+        );
+      color: #24303a;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+
+    header {
+      background:
+        linear-gradient(
+          135deg,
+          #18242d,
+          #263945
+        );
+      color: #f8f5ef;
+      padding: 34px 24px 30px;
+      border-bottom: 5px solid #b89b5e;
+      box-shadow:
+        0 4px 14px rgba(0,0,0,0.20);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #d8c69a;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .back-link:hover {
+      color: #f8f5ef;
+    }
+
+    .case-number {
+      font-family: Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+      color: #b89b5e;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.15;
+      font-weight: normal;
+    }
+
+    .citation {
+      margin-top: 14px;
+      color: #d8c69a;
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+    }
+
+    /* MAIN */
+
+    main {
+      max-width: 1100px;
+      margin: 45px auto;
+      padding: 0 22px 60px;
+    }
+
+    .intro {
+      background: rgba(255,255,255,0.72);
+      border-left: 5px solid #b89b5e;
+      padding: 24px 28px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    }
+
+    .intro h2 {
+      margin-top: 0;
+      color: #18242d;
+    }
+
+    .intro p {
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+
+    /* CARDS */
+
+    .grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background:
+        linear-gradient(
+          145deg,
+          #263945 0%,
+          #1d2c35 65%,
+          #18242d 100%
+        );
+
+      color: #f8f5ef;
+      padding: 27px 26px;
+      border-top: 4px solid #b89b5e;
+      border-radius: 4px;
+
+      box-shadow:
+        0 8px 20px rgba(0,0,0,0.18);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #d8c69a;
+      font-size: 21px;
+    }
+
+    .card p,
+    .card li {
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .card ul {
+      padding-left: 21px;
+    }
+
+    /* FULL WIDTH */
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    /* ISSUE BOX */
+
+    .issue {
+      margin-top: 35px;
+      padding: 28px;
+      background: #f8f5ef;
+      border: 1px solid #c9b98f;
+      box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+    }
+
+    .issue h2 {
+      color: #18242d;
+      margin-top: 0;
+    }
+
+    .issue p {
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* PRINCIPLE */
+
+    .principle {
+      margin-top: 35px;
+      padding: 30px;
+      background:
+        linear-gradient(
+          135deg,
+          #18242d,
+          #263945
+        );
+      color: #f8f5ef;
+      border-left: 7px solid #b89b5e;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.18);
+    }
+
+    .principle h2 {
+      color: #d8c69a;
+      margin-top: 0;
+    }
+
+    .principle p {
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    /* NAVIGATION */
+
+    .navigation {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 45px;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 13px 20px;
+      background: #18242d;
+      color: #d8c69a;
+      text-decoration: none;
+      border: 1px solid #b89b5e;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .navigation a:hover {
+      background: #263945;
+      color: #f8f5ef;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #18242d;
+      color: #d8c69a;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+
+      h1 {
+        font-size: 29px;
+      }
+
+      main {
+        margin-top: 30px;
+      }
+
+      .navigation {
+        flex-direction: column;
+      }
+
+      .navigation a {
+        text-align: center;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="header-inner">
+
+    <a
+      class="back-link"
+      href="../index.html"
+    >
+      ← Back to RAF Causation
+    </a>
+
+    <div class="case-number">
+      Case 02
+    </div>
+
+    <h1>
+      Road Accident Fund v Russell
+    </h1>
+
+    <div class="citation">
+      Case No. 656/98 · Supreme Court of Appeal · 24 November 2000
+    </div>
+
+  </div>
+
+</header>
+
+
+<main>
+
+
+  <section class="intro">
+
+    <h2>
+      Case Overview
+    </h2>
+
+    <p>
+      This case concerns legal causation and the question whether the
+      subsequent suicide of a person whose mental functioning had been
+      impaired by injuries sustained in a motor vehicle accident constitutes
+      a <em>novus actus interveniens</em> that breaks the causal chain.
+    </p>
+
+  </section>
+
+
+  <section class="grid">
+
+
+    <article class="card">
+
+      <h3>01 · The Facts</h3>
+
+      <p>
+        The deceased sustained serious brain injuries in a motor vehicle
+        accident. Following the accident, his mental functioning and judgment
+        were affected and he developed depression.
+      </p>
+
+      <p>
+        He subsequently committed suicide. The question arose whether his
+        death could still legally be attributed to the injuries caused by
+        the accident.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <h3>02 · The Legal Issue</h3>
+
+      <p>
+        The central question was whether the suicide constituted a
+        <em>novus actus interveniens</em> — a new intervening act which
+        interrupted the chain of causation between the motor vehicle accident
+        and the deceased's death.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <h3>03 · Causation</h3>
+
+      <p>
+        The case demonstrates that establishing factual causation is only part
+        of the enquiry. The Court also had to determine whether the connection
+        between the accident, the resulting brain injury, the impaired mental
+        state and the eventual death was sufficiently close for legal
+        causation to exist.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <h3>04 · Novus Actus Interveniens</h3>
+
+      <p>
+        A subsequent event does not automatically break the chain of
+        causation. The nature of the intervening conduct and the circumstances
+        in which it occurred must be considered.
+      </p>
+
+      <p>
+        Here, the deceased's impaired mental condition was central to the
+        Court's reasoning.
+      </p>
+
+    </article>
+
+
+    <article class="card full">
+
+      <h3>05 · The Court's Reasoning</h3>
+
+      <p>
+        The Court considered the effect of the brain injury on the deceased's
+        ability to make a rational and balanced decision. His depression and
+        impaired judgment were consequences of the injuries sustained in the
+        accident.
+      </p>
+
+      <p>
+        The Court therefore considered the suicide in the context of the
+        deceased's impaired mental condition rather than treating it as an
+        entirely independent event disconnected from the original injuries.
+      </p>
+
+    </article>
+
+
+  </section>
+
+
+  <section class="issue">
+
+    <h2>
+      The Central Question
+    </h2>
+
+    <p>
+      <strong>
+        Did the deceased's suicide constitute a
+        <em>novus actus interveniens</em> which broke the chain of legal
+        causation between the motor vehicle accident and his death?
+      </strong>
+    </p>
+
+  </section>
+
+
+  <section class="principle">
+
+    <h2>
+      Principle from the Case
+    </h2>
+
+    <p>
+      The Court held that the suicide did not constitute a
+      <em>novus actus interveniens</em> in the circumstances of the case.
+      The deceased's brain injury had materially affected his mental
+      functioning and judgment, and that impairment was relevant to the
+      causal connection between the accident and his eventual death.
+    </p>
+
+    <p>
+      The case therefore illustrates an important distinction in RAF
+      causation: a later act may appear to be an independent event, but it
+      does not necessarily break the causal chain where the original injury
+      materially contributes to the condition that produces the later event.
+    </p>
+
+  </section>
+
+
+  <section class="grid" style="margin-top:35px;">
+
+
+    <article class="card">
+
+      <h3>06 · Practitioner Lesson</h3>
+
+      <p>
+        When analysing causation, do not stop at identifying a later event.
+        Ask whether the original accident or injury materially contributed
+        to the circumstances in which that event occurred.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <h3>07 · Key Concept</h3>
+
+      <p>
+        <strong>Novus actus interveniens</strong>
+      </p>
+
+      <p>
+        A new intervening act which is sufficiently independent of the
+        original wrongful conduct may break the chain of causation.
+        <em>Russell</em> demonstrates that this depends on the particular
+        facts and the relationship between the original injury and the later
+        event.
+      </p>
+
+    </article>
+
+
+    <article class="card">
+
+      <h3>08 · Why It Matters</h3>
+
+      <p>
+        The case is useful when a RAF claim involves complications,
+        subsequent conduct or events occurring after the original accident.
+        It shows why factual causation and legal causation must be analysed
+        separately.
+      </p>
+
+    </article>
+
+
+  </section>
+
+
+  <div class="navigation">
+
+    <a href="../index.html">
+      ← RAF Causation
+    </a>
+
+    <a href="../grove-v-road-accident-fund/index.html">
+      ← Case 01
+    </a>
+
+  </div>
+
+
+</main>
+
+
+<footer>
+
+  Fluently Case Analysis · RAF Causation
+
+</footer>
+
+
+</body>
+
+</html>
